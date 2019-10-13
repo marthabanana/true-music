@@ -1,383 +1,387 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>True Music</title>
-<style>
-body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-}
-</style>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>True Music</title>
+  </head>
 
 <body>
-    <div id="venn"></div>
-</body>
-
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-#venn {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.venntooltip {
-  position: absolute;
-  text-align: center;
-  width: 128px;
-  background: #333;
-  color: #ddd;
-  padding: 5px;
-  border: 0px;
-  border-radius: 8px;
-  opacity: 0;
-  box-sizing: border-box;
-}
-.venn-circle {
-  cursor: pointer;
-}
-[data-venn-sets^="DJ_"] path {
-  fill: #333 !important;
-  fill-opacity: 1 !important;
-}
-</style>
-
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="venn.js"></script>
-<script src="artists.js"></script>
-<script>
+  <div id="venn"></div>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #venn {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .venntooltip {
+      position: absolute;
+      text-align: center;
+      width: 128px;
+      background: #333;
+      color: #ddd;
+      padding: 5px;
+      border: 0px;
+      border-radius: 8px;
+      opacity: 0;
+      box-sizing: border-box;
+    }
+    .venn-circle {
+      cursor: pointer;
+    }
+    [data-venn-sets^="DJ_"] path {
+      fill: #333 !important;
+      fill-opacity: 1 !important;
+    }
+  </style>
 
 
-var genreSets = Object.keys(GENRES).map(function(genreKey, i) {
-  const artists = getArtistsByGenres([genreKey])
-  return {
-    sets: [genreKey],
-    label: genreKey,
-    artists: artists,
-    size: artists.length,
-  }
-})
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="venn.js"></script>
+  <script src="artists.js"></script>
+  <script>
 
 
-var genreInteresections = getGenreIntersections()
-var sets = genreSets.concat(genreInteresections)
-// var sets = genreInteresections.concat(genreSets)
-
-console.warn({ genreSets, sets, genreInteresections })
-
-
-var tooltip = d3.select("body").append("div")
-    .attr("class", "venntooltip");
-
-var chart, div
-
-
-draw()
-addEvents()
-
-window.addEventListener('resize', draw)
-
-function getArtistsByGenres(genreKeys, excludeGenre) {
-  return Object.keys(ARTISTS).filter(function(artistKey) {
-    return genreKeys.every(function(genreKey) {
-      return ARTISTS[artistKey].genres.indexOf(genreKey) !== -1 &&
-        excludeGenre !== genreKey
-    })
-  }).map(function(artistKey) {
-    return `DJ_${artistKey}`
-  })
-}
-
-function getArtist(artistKey) {
-
-  return ARTISTS[artistKey.replace(/^DJ_/, '')]
-}
-function getArtistName(artistKey) {
-
-  return getArtist(artistKey).name || artistKey.replace(/_/g, ' ')
-}
-
-function getGenreIntersections(betweenGenreKeys=Object.keys(GENRES)) {
-  return Object.keys(GENRES).map(function(genreKey, i, genreKeys) {
-    // console.log(i, genreKey)
-    return genreKeys.slice(i + 1).map(function(nextGenreKey) {
-      // console.log(i, genreKey, nextGenreKey)
-      if (betweenGenreKeys.indexOf(genreKey) === -1 &&
-          betweenGenreKeys.indexOf(nextGenreKey) === -1) {
-        return
-      }
-      const artists = getArtistsByGenres([genreKey, nextGenreKey])
+    var genreSets = Object.keys(GENRES).map(function(genreKey, i) {
+      const artists = getArtistsByGenres([genreKey])
       return {
-        sets: [ genreKey, nextGenreKey ],
-        size: artists.length * 0.8,
+        sets: [genreKey],
+        label: genreKey,
         artists: artists,
+        size: artists.length,
       }
     })
-  }).flat().filter(function(set) {
-    return set && set.size > 0
-  })
-}
-
-function draw() {
-  var vennEl = document.getElementById('venn')
-
-  chart = venn.VennDiagram()
-                   .width(vennEl.offsetWidth)
-                   .height(vennEl.offsetHeight);
-
-  div = d3.select("#venn")
 
 
-  div.datum(sets).call(chart)
+    var genreInteresections = getGenreIntersections()
+    var sets = genreSets.concat(genreInteresections)
+    // var sets = genreInteresections.concat(genreSets)
 
-  div.selectAll("path")
-    .style("stroke-opacity", 0)
-    .style("stroke", "#fff")
-    .style("stroke-width", 3)
+    console.warn({ genreSets, sets, genreInteresections })
 
-  // div.selectAll('.venn-circle path')
-  //   .style("fill-opacity", 0.9)
 
-}
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "venntooltip");
 
-function renderArtists(datum) {
-  var artists = getArtistsByGenres(datum.sets).map(function(artistKey) {
-    return [
-      {
-        sets: [ artistKey ],
-        label: getArtistName(artistKey),
-        size: 1
-      },
-      {
-        sets: datum.sets.concat(artistKey),
-        size: 0.1,
-      }
-    ]
-  }).flat()
+    var chart, div
 
-  var genres = datum.sets.map(function(genreKey) {
-    var artists = getArtistsByGenres([genreKey])
 
-    return [
-      {
-        sets: [ genreKey ],
-        label: genreKey,
-        size: artists.length,
-        artists: artists,
-      }
-    ].concat(
-      artists.map(function(artistKey) {
+    draw()
+    addEvents()
+
+    window.addEventListener('resize', draw)
+
+    function getArtistsByGenres(genreKeys, excludeGenre) {
+      return Object.keys(ARTISTS).filter(function(artistKey) {
+        return genreKeys.every(function(genreKey) {
+          return ARTISTS[artistKey].genres.indexOf(genreKey) !== -1 &&
+            excludeGenre !== genreKey
+        })
+      }).map(function(artistKey) {
+        return `DJ_${artistKey}`
+      })
+    }
+
+    function getArtist(artistKey) {
+
+      return ARTISTS[artistKey.replace(/^DJ_/, '')]
+    }
+    function getArtistName(artistKey) {
+
+      return getArtist(artistKey).name || artistKey.replace(/_/g, ' ')
+    }
+
+    function getGenreIntersections(betweenGenreKeys=Object.keys(GENRES)) {
+      return Object.keys(GENRES).map(function(genreKey, i, genreKeys) {
+        // console.log(i, genreKey)
+        return genreKeys.slice(i + 1).map(function(nextGenreKey) {
+          // console.log(i, genreKey, nextGenreKey)
+          if (betweenGenreKeys.indexOf(genreKey) === -1 &&
+              betweenGenreKeys.indexOf(nextGenreKey) === -1) {
+            return
+          }
+          const artists = getArtistsByGenres([genreKey, nextGenreKey])
+          return {
+            sets: [ genreKey, nextGenreKey ],
+            size: 0.01,
+            // size: artists.length * 0.8,
+            artists: artists,
+          }
+        })
+      }).flat().filter(function(set) {
+        return set && set.size > 0
+      })
+    }
+
+    function draw() {
+      var vennEl = document.getElementById('venn')
+
+      chart = venn.VennDiagram()
+                       .width(vennEl.offsetWidth)
+                       .height(vennEl.offsetHeight);
+
+      div = d3.select("#venn")
+
+
+      div.datum(sets).call(chart)
+
+      // div.select('g').append('defs').html(` \
+      // <pattern id="technoImagex" width="1" height="1"> \
+      //   <image xlink:href="image.png" x="0" y="0" width="100" height="100" /> \
+      // </pattern>\
+      // `)
+
+      // div.selectAll("path")
+      //   .style('fill', 'url(#technoImage)')
+        // .attr('fill', 'url(#technoImage)')
+      //   .style("stroke-opacity", 0)
+      //   .style("stroke", "#fff")
+      //   .style("stroke-width", 3)
+
+      // div.selectAll('.venn-circle path')
+      //   .style("fill-opacity", 0.9)
+
+    }
+
+    function renderArtists(datum) {
+      var artists = getArtistsByGenres(datum.sets).map(function(artistKey) {
         return [
           {
             sets: [ artistKey ],
             label: getArtistName(artistKey),
-            size: 1 / artists.length
+            size: 1
           },
           {
-            sets: [ genreKey, artistKey ],
-            size: 1
+            sets: datum.sets.concat(artistKey),
+            size: 0.1,
           }
         ]
       }).flat()
-    )
-  }).flat()
 
-  return genres
-}
+      var genres = datum.sets.map(function(genreKey) {
+        var artists = getArtistsByGenres([genreKey])
 
-function renderIntersectionsWithArtists(datum) {
-  var genreInteresections = getGenreIntersections(datum.sets)
-  var additionalGenreSets = genreInteresections.map(function(intersection) {
-    return intersection.sets.map(function(genre) {
-      return !datum.sets.includes(genre) ? genre : null
-    })
-  }).flat().filter(function(r) { return !!r }).map(function(genreKey) {
-    var artists = getArtistsByGenres(datum.sets.concat([genreKey]))
-    // .filter(function(genreArtist) {
-    //   return genre.artists.includes(genreArtist)
-    // })
-    return [
-      {
-        sets: datum.sets.concat([ genreKey ]),
-        // label: genreKey,
-        artists: artists,
-        // weight: 1000,
-        // size: 0.01// / genre.artists.length
-        size: 0.01 //artists.length
-      },
-      {
-        sets: [ genreKey ],
-        label: `${[ genreKey ].concat(datum.sets).join(' & ')} (${artists.length} artists)`,
-        // label: genreKey,
-        // tooltip: `${artists.length} artists in ${datum.sets.concat([ genreKey ]).join(' & ')}`,
-        artists: artists,
-        size: artists.length// / genre.artists.length
-      },
-    ].concat(artists.map(function(genreArtist) {
-      return [
-        {
-          sets: [ genreKey, genreArtist ],
-          size: 0.01  /// artists.length
-        },
-        {
-          sets: [ genreArtist ],
-          label: getArtistName(genreArtist),
-          artist: genreArtist,
-          size: 0.1 // / artists.length
-        }
-      ]
-    })).flat()
-  }).flat()
+        return [
+          {
+            sets: [ genreKey ],
+            label: genreKey,
+            size: artists.length,
+            artists: artists,
+          }
+        ].concat(
+          artists.map(function(artistKey) {
+            return [
+              {
+                sets: [ artistKey ],
+                label: getArtistName(artistKey),
+                size: 1 / artists.length
+              },
+              {
+                sets: [ genreKey, artistKey ],
+                size: 1
+              }
+            ]
+          }).flat()
+        )
+      }).flat()
 
-  var artists = getArtistsByGenres(datum.sets).filter(function(artistKey) {
-    return !genreInteresections.find(function(intersection) {
-      return intersection.artists.includes(artistKey)
-    })
-  })
-  var genre = {
-    sets: datum.sets,
-    size: artists.length,
-    label: `${datum.sets} (${artists.length} artists)`,
-    artists: artists,
-    // tooltip: `${artists.length} artists in ${datum.sets.join(' & ')} only`,
-  }
-  var artistsSets = artists.map(function(artistKey) {
-    return [
-      {
-          sets: [artistKey],
-          label: getArtistName(artistKey),
-          artist: artistKey,
-          size: 0.1 // / artists.length,
-      },
-      {
-        sets: datum.sets.concat([artistKey]),
-        size: 0.01  /// artists.length
-      }
-    ]
-  }).flat()
-
-  var newDatum = additionalGenreSets.concat(genre, artistsSets)//, genreInteresections)
-
-  console.warn({ datum, newDatum, artists, additionalGenreSets, genreInteresections })
-
-  return newDatum
-  // div.datum(newDatum).call(chart);
-  // addEvents()
-
-  // venn.sortAreas(div, newDatum);
-}
-
-function renderArtist(datum) {
-  const artist = getArtist(datum.artist)
-  console.warn(artist.genres, getGenreIntersections(artist.genres))
-  return [
-    {
-      sets: [datum.artist],
-      size: 10,
-      label: getArtistName(datum.artist),
+      return genres
     }
-  ].concat(
-    artist.genres.map(function(genreKey, i, arr) {
-      const excludeGenre = i ? arr[i-1] : null
-      const artists = getArtistsByGenres([genreKey], excludeGenre).filter(function(artistKey) {
-        return artistKey !== datum.artist
-      })//.slice(0,5)
-      return [
-        {
-          sets: [ genreKey ],
-          size: 0.5,
-          label: genreKey,
-        },
-        {
-          sets: [datum.artist, genreKey],
-          size: 0.1,
-        }
-      ].concat(
-        artists.map(function(artistKey, i, arr) {
+
+    function renderIntersectionsWithArtists(datum) {
+      var genreInteresections = getGenreIntersections(datum.sets)
+      var additionalGenreSets = genreInteresections.map(function(intersection) {
+        return intersection.sets.map(function(genre) {
+          return !datum.sets.includes(genre) ? genre : null
+        })
+      }).flat().filter(function(r) { return !!r }).map(function(genreKey) {
+        var artists = getArtistsByGenres(datum.sets.concat([genreKey]))
+        // .filter(function(genreArtist) {
+        //   return genre.artists.includes(genreArtist)
+        // })
+        return [
+          {
+            sets: datum.sets.concat([ genreKey ]),
+            // label: genreKey,
+            artists: artists,
+            // weight: 1000,
+            // size: 0.01// / genre.artists.length
+            size: 0.01 //artists.length
+            // size: 0.3 * artists.length
+          },
+          {
+            sets: [ genreKey ],
+            label: `${[ genreKey ].concat(datum.sets).join(' & ')} (${artists.length} artists)`,
+            // label: genreKey,
+            // tooltip: `${artists.length} artists in ${datum.sets.concat([ genreKey ]).join(' & ')}`,
+            artists: artists,
+            size: artists.length// / genre.artists.length
+          },
+        ].concat(artists.map(function(genreArtist) {
           return [
             {
-              sets: [ artistKey, ],
-              artist: artistKey,
-              size: 0.1 * (0.5 / arr.length),
-              label: ' '
-              // label: getArtistName(artistKey)
+              sets: [ genreKey, genreArtist ],
+              size: 0.01  /// artists.length
             },
             {
-              sets: [ artistKey, genreKey ],
-              size: 0.1 * (0.1 / arr.length),
-              // weight: 0
+              sets: [ genreArtist ],
+              label: getArtistName(genreArtist),
+              artist: genreArtist,
+              size: 0.1 // / artists.length
             }
           ]
-        }).flat()
-      )
-    }).flat()
-  )
-}
+        })).flat()
+      }).flat()
 
-function handleAreaClick(datum) {
-  // const newDatum = renderArtists(datum)
-  // const newDatum = renderIntersectionsWithArtists(datum)
-  console.warn({ datum })
-  // div.datum(newDatum).call(chart);
-  // addEvents()
+      var artists = getArtistsByGenres(datum.sets).filter(function(artistKey) {
+        return !genreInteresections.find(function(intersection) {
+          return intersection.artists.includes(artistKey)
+        })
+      })
+      var genre = {
+        sets: datum.sets,
+        size: artists.length,
+        label: `${datum.sets} (${artists.length} artists)`,
+        artists: artists,
+        // tooltip: `${artists.length} artists in ${datum.sets.join(' & ')} only`,
+      }
+      var artistsSets = artists.map(function(artistKey) {
+        return [
+          {
+              sets: [artistKey],
+              label: getArtistName(artistKey),
+              artist: artistKey,
+              size: 0.1 // / artists.length,
+          },
+          {
+            sets: datum.sets.concat([artistKey]),
+            size: 0.01  /// artists.length
+          }
+        ]
+      }).flat()
 
-  if (datum.artist) {
-    sets = renderArtist(datum)
-  } else {
-    sets = renderIntersectionsWithArtists(datum)
-  }
-  console.warn({ datum, sets })
+      var newDatum = additionalGenreSets.concat(genre, artistsSets)//, genreInteresections)
 
-  draw()
-  addEvents()
-}
+      console.warn({ datum, newDatum, artists, additionalGenreSets, genreInteresections })
 
-function handleMouseOver(d, i) {
-    // sort all the areas relative to the current item
-    // venn.sortAreas(div, d);
+      return newDatum
+      // div.datum(newDatum).call(chart);
+      // addEvents()
 
-    // Display a tooltip with the current size
-    var tooltipText = d.tooltip || (d.artists ? d.artists.length + " artists" :  null)
-
-    if (tooltipText) {
-      // tooltip.transition().duration(400).style("opacity", .9);
-      // tooltip.text(tooltipText);
+      // venn.sortAreas(div, newDatum);
     }
 
-    // highlight the current path
-    var selection = d3.select(this).transition("tooltip").duration(400);
-    selection.select("path")
-        .style("fill-opacity", d.sets.length == 1 ? .4 : .1)
-        .style("stroke-opacity", 1);
-}
+    function renderArtist(datum) {
+      const artist = getArtist(datum.artist)
+      console.warn(artist.genres, getGenreIntersections(artist.genres))
+      return [
+        {
+          sets: [datum.artist],
+          size: 10,
+          label: getArtistName(datum.artist),
+        }
+      ].concat(
+        artist.genres.map(function(genreKey, i, arr) {
+          const excludeGenre = i ? arr[i-1] : null
+          const artists = getArtistsByGenres([genreKey], excludeGenre).filter(function(artistKey) {
+            return artistKey !== datum.artist
+          })//.slice(0,5)
+          return [
+            {
+              sets: [ genreKey ],
+              size: 0.5,
+              label: genreKey,
+            },
+            {
+              sets: [datum.artist, genreKey],
+              size: 0.1,
+            }
+          ].concat(
+            artists.map(function(artistKey, i, arr) {
+              return [
+                {
+                  sets: [ artistKey, ],
+                  artist: artistKey,
+                  size: 0.1 * (0.5 / arr.length),
+                  label: ' '
+                  // label: getArtistName(artistKey)
+                },
+                {
+                  sets: [ artistKey, genreKey ],
+                  size: 0.1 * (0.1 / arr.length),
+                  // weight: 0
+                }
+              ]
+            }).flat()
+          )
+        }).flat()
+      )
+    }
 
-function handleMouseMove() {
-    tooltip.style("left", (d3.event.pageX + 20) + "px")
-           .style("top", (d3.event.pageY - 28) + "px");
-}
+    function handleAreaClick(datum) {
+      // const newDatum = renderArtists(datum)
+      // const newDatum = renderIntersectionsWithArtists(datum)
+      console.warn({ datum })
+      // div.datum(newDatum).call(chart);
+      // addEvents()
 
-function handleMouseOut(d, i) {
-    tooltip.transition().duration(400).style("opacity", 0);
-    var selection = d3.select(this).transition("tooltip").duration(400);
-    selection.select("path")
-        .style("fill-opacity", d.sets.length == 1 ? .25 : .0)
-        .style("stroke-opacity", 0);
-}
+      if (datum.artist) {
+        sets = renderArtist(datum)
+      } else {
+        sets = renderIntersectionsWithArtists(datum)
+      }
+      console.warn({ datum, sets })
 
-function addEvents() {
-  // div.selectAll("g")
-  div.selectAll(".venn-circle")
-    .on("click", handleAreaClick)
-    .on("mouseover", handleMouseOver)
-    .on("mousemove", handleMouseMove)
-    .on("mouseout", handleMouseOut);
-}
-</script>
+      draw()
+      addEvents()
+    }
+
+    function handleMouseOver(d, i) {
+        // sort all the areas relative to the current item
+        // venn.sortAreas(div, d);
+
+        // Display a tooltip with the current size
+        var tooltipText = d.tooltip || (d.artists ? d.artists.length + " artists" :  null)
+
+        if (tooltipText) {
+          // tooltip.transition().duration(400).style("opacity", .9);
+          // tooltip.text(tooltipText);
+        }
+
+        // highlight the current path
+        var selection = d3.select(this).transition("tooltip").duration(400);
+        selection.select("path")
+            .style("fill-opacity", d.sets.length == 1 ? .4 : .1)
+            .style("stroke-opacity", 1);
+    }
+
+    function handleMouseMove() {
+        tooltip.style("left", (d3.event.pageX + 20) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+    }
+
+    function handleMouseOut(d, i) {
+        tooltip.transition().duration(400).style("opacity", 0);
+        var selection = d3.select(this).transition("tooltip").duration(400);
+        selection.select("path")
+            .style("fill-opacity", d.sets.length == 1 ? .25 : .0)
+            .style("stroke-opacity", 0);
+    }
+
+    function addEvents() {
+      // div.selectAll("g")
+      div.selectAll(".venn-circle")
+        .on("click", handleAreaClick)
+        .on("mouseover", handleMouseOver)
+        .on("mousemove", handleMouseMove)
+        .on("mouseout", handleMouseOut);
+    }
+  </script>
+</body>
 </html>
