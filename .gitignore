@@ -1,1 +1,8 @@
 _venn.js
+.DS_STORE
+
+node_modules
+dist
+_assets
+
+src/data.json
