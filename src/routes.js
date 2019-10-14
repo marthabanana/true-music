@@ -27,13 +27,21 @@ function genre({ renderGenre, venn, }) {
     enter({ params }) {
       const { genre } = params
       venn.style.display = 'block'
-      renderGenre({ genre, })
+      console.warn('genre enter', { params })
+      renderGenre({ genre, container: venn  })
     },
 
-    exit({ params }) {
-      // if (params.artist) {
-        venn.style.display = 'none'
-      // }
+    exit(current, next) {
+
+      console.warn('genre exit', { current, next })
+
+      venn.style.display = 'none'
+      if (!next.params.artist) {
+        Array.from(document.querySelectorAll('#venn [data-venn-sets*="::"] text.label')).forEach(label => {
+          label.parentNode.removeChild(label)
+        })
+
+      }
     }
   }
 }
@@ -66,7 +74,7 @@ function artist({ pageArtist, data, }) {
       pageArtist.style.display = 'block'
     },
 
-    exit({ params }) {
+    exit() {
       // if (!params.artist) {
         pageArtist.style.display = 'none'
       // }

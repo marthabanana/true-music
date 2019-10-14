@@ -15,12 +15,14 @@ const pathMatch = pathMatcher({
 
 function createRouter({ ctx } = {}) {
   const ROUTES = []
+
   function getHash() {
     return location.hash.slice(1) || '/'
   }
+
   let currentRoute
   function navigate(route) {
-    console.log('go to', route)
+    console.warn('[router] go to', route)
     const matchedRoutes = ROUTES.map(
       r => ({
         ...r,
@@ -28,33 +30,36 @@ function createRouter({ ctx } = {}) {
         match: r.matcher.exec(route),
         params: r.params(route),
       })
-    ).filter(r => r.match)
-
-    console.log('go to', matchedRoutes)
+    ).find(r => !!r.match)
 
     if (currentRoute && typeof currentRoute.cb.exit === 'function') {
       document.body.setAttribute(`data-route-exiting`, currentRoute.path)
       document.body.setAttribute(`data-route-exiting-route`, stringify(currentRoute.route))
-      currentRoute.cb.exit({})
       console.warn(`[router] exit ${currentRoute ? currentRoute.path : null}`, { currentRoute, })
+      currentRoute.cb.exit(currentRoute || {}, matchedRoutes)
     }
 
-    if (matchedRoutes) {
+    const newRoute = [matchedRoutes].find(r => {
+      const result = r.cb.enter({ ...r }, currentRoute || {})
+      if (result === false) {
+        return false
+      }
+      return true
+    })
+
+    if (newRoute) {
       location.hash = `#${route}`
-      const newRoute = matchedRoutes.find(async r => {
-        const result = r.cb.enter({ ...r }, currentRoute)
-        if (result === false) {
-          return false
-        }
-        return true
-      })
+
       console.warn(`[router] enter ${route}`, { newRoute, currentRoute })
-      if (newRoute) {
-        document.body.setAttribute(`data-route-path`, newRoute.path)
-        document.body.setAttribute(`data-route-route`, stringify(newRoute.route))
-        document.body.removeAttribute(`data-route-exiting`)
-        document.body.removeAttribute(`data-route-exiting-route`)
-        currentRoute = newRoute
+
+      document.body.setAttribute(`data-route-path`, newRoute.path)
+      document.body.setAttribute(`data-route-route`, stringify(newRoute.route))
+      document.body.removeAttribute(`data-route-exiting`)
+      document.body.removeAttribute(`data-route-exiting-route`)
+
+      currentRoute = {
+        path: route,
+        ...newRoute
       }
     }
   }
@@ -62,8 +67,7 @@ function createRouter({ ctx } = {}) {
   function router(route, cb) {
     const loc = getHash()
     if (typeof route === 'string') {
-      if (arguments.length === 2 && cb &&
-          (typeof cb === 'function') || cb.enter) {
+      if (arguments.length === 2 && cb && (typeof cb === 'function' || cb.enter)) {
         const matcher = pathToRegExp(route)
         ROUTES.push({
           route,
@@ -75,7 +79,6 @@ function createRouter({ ctx } = {}) {
         if (matcher.exec(loc)) {
           navigate(loc)
         }
-
       }
       else if (arguments.length === 1) {
         navigate(route)
