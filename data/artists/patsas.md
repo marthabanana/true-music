@@ -10,6 +10,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Patsas loves to make people dance and he’s got the musical know-how to keep the dancefloor grooving. As the founder of Brandy Sour, he has cemented his place at the heart of the contemporary music, event and DJ scene in Cyprus. And as a DJ, he takes his audiences on a journey through the more obscure, weird and wonderful end of the house and disco music spectrum.
