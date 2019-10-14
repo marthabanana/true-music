@@ -10,6 +10,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+After a heady debut on the electronic music scene back in 1989, followed by a two-decade-long residency at Versus, Manic Mike is now focused on exploring the deeper sounds of house and techno. This veteran DJ and event organiser also gets the dancefloor moving as a resident at Nicosia’s Klubd. 
