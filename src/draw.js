@@ -2,16 +2,13 @@
 import * as d3 from 'd3'
 import * as venn from 'venn.js'
 
-export default ({ genres, artists }) => {
-
-
-  // var sets = genreInteresections.concat(genreSets)
-
+export default ({ genres, artists, }) => {
   const tooltip = d3.select("body").append("div")
       .attr("class", "venntooltip");
 
   const genreText = document.createElement('div')
   document.getElementById('venn').append(genreText)
+
   var chart, div
 
   function getArtistsByGenres(genreKeys, excludeGenre) {
@@ -37,18 +34,22 @@ export default ({ genres, artists }) => {
 
   function getGenreIntersections(betweenGenreKeys=Object.keys(genres)) {
     return Object.keys(genres).map(function(genreKey, i, genreKeys) {
-      // console.log(i, genreKey)
       return genreKeys.slice(i + 1).map(function(nextGenreKey) {
-        // console.log(i, genreKey, nextGenreKey)
+
         if (betweenGenreKeys.indexOf(genreKey) === -1 &&
             betweenGenreKeys.indexOf(nextGenreKey) === -1) {
-          return
+          return null
         }
-        const genreArtists = getArtistsByGenres([genreKey, nextGenreKey])
+
+        const genreArtists = getArtistsByGenres([ genreKey, nextGenreKey ])
+
+        if (!genreArtists.length) {
+          return null
+        }
+
         return {
           sets: [ genreKey, nextGenreKey ],
           size: 0.01,
-          // size: artists.length * 0.5,
           artists: genreArtists,
         }
       })
@@ -73,61 +74,22 @@ export default ({ genres, artists }) => {
 
     var sets = genreSets.concat(genreInteresections)
 
-    draw({sets})
+    draw({ sets })
   }
 
-  function renderArtists(datum) {
-    return datum.sets.map(function(genreKey) {
-      var artists = getArtistsByGenres([genreKey])
-      // const genre = genres[genreKey]
-      return [
-        {
-          genre: genreKey,
-          sets: [ genreKey ],
-          label: genreKey,
-          size: artists.length,
-          artists: artists,
-        }
-      ].concat(
-        artists.map(function(artistKey) {
-          return [
-            {
-              artist: artistKey,
-              sets: [ artistKey ],
-              label: getArtistName(artistKey),
-              size: 1 / artists.length
-            },
-            {
-              sets: [ genreKey, artistKey ],
-              size: 1
-            }
-          ]
-        }).flat()
-      )
-    }).flat()
-  }
+  function renderGenre({ genre, }) {
+    var genreInteresections = getGenreIntersections([ genre ])
 
 
-  function renderIntersectionsWithArtists({ sets }) {
-
-
-    var genreInteresections = getGenreIntersections(sets)
-
-
-    var genreArtists = getArtistsByGenres(sets)
-    // .filter(function(artistKey) {
-    //   return !genreInteresections.find(function(intersection) {
-    //     return intersection.artists.includes(artistKey)
-    //   })
-    // })
+    var genreArtists = getArtistsByGenres([ genre ])
 
     var additionalGenreSets = genreInteresections.map(function(intersection) {
-      return intersection.sets.map(function(genre) {
-        return sets.includes(genre) ? null : genre
+      return intersection.sets.map(function(genreKey) {
+        return genre === genreKey ? null : genreKey
       })
     }).flat().filter(function(r) { return !!r })
     .map(function(genreKey) {
-      const genreArtists = getArtistsByGenres(sets.concat([genreKey]))
+      const genreArtists = getArtistsByGenres([genre, genreKey])
       const uniqueGenreArtists = genreArtists.filter(
         artistKey => genreArtists.indexOf(artistKey) === -1
       )
@@ -138,37 +100,23 @@ export default ({ genres, artists }) => {
        ]
     })
     .sort(function(a,b) {
-      return a[1].length > b[1].length ? -1 : 0
+      return a[2].length > b[2].length ? -1 : 0
     })
     .slice(0,4)
     .map(function([genreKey, genreArtists, uniqueGenreArtists]) {
-      // var artists = getArtistsByGenres(sets.concat([genreKey]))
-      // .filter(function(genreArtist) {
-      //   return genre.artists.includes(genreArtist)
-      // })
-      console.log({genreKey, genreArtists, uniqueGenreArtists})
+      console.warn([genre, genreKey], uniqueGenreArtists)
       const baseSize = Math.min(50, Math.max(15, genreArtists.length) * genreArtists.length)
       return [
         {
-          sets: sets.concat([ genreKey ]),
-          // label: genreKey,
-          // artists: artists,
-          // weight: 1000,
-          // size: 0.01// / genre.artists.length
-          size: 0.1 //artists.length
-          // size: 0.3 * artists.length
+          sets: [ genre, genreKey ],
+          size: 0.1
         },
         {
           sets: [ genreKey ],
           genre: genreKey,
           label: genres[genreKey].props.name,
-          // label: `${allGenreArtists.length} ${genres[genreKey].props.name}`,
-          // label: genreKey,
-          // tooltip: `${artists.length} artists in ${datum.sets.concat([ genreKey ]).join(' & ')}`,
           artists: uniqueGenreArtists,
-          // size: Math.min(20, Math.max(50, allGenreArtists.length)) // / genre.artists.length
           size: baseSize // / genre.artists.length
-          // size: 30,
         },
       ].concat(
         uniqueGenreArtists.map(function(genreArtist) {
@@ -188,12 +136,13 @@ export default ({ genres, artists }) => {
         }).slice(0, 7)
       ).flat()
     }).flat()
-    const genreKey = sets[0]
 
-    var genre = {
-      genre: genreKey,
-      sets: sets,
-      size: 500, //Math.m(50, artists.length),
+    // const genreKey = sets[0]
+
+    var genreSet = {
+      genre,
+      sets: [ genre ],
+      size: 500,
       label: ` `,
       artists: genreArtists,
       // tooltip: `${artists.length} artists in ${datum.sets.join(' & ')} only`,
@@ -201,84 +150,27 @@ export default ({ genres, artists }) => {
     var artistsSets = genreArtists.map(function(artistKey) {
       return [
         {
-            sets: [`${genreKey}::${artistKey}`],
-            genre: genreKey,
+            sets: [`${genre}::${artistKey}`],
+            genre: genre,
             label: getArtist(artistKey).props.label,
             artist: artistKey,
             size: Math.max(5, genreArtists.length /  5) // / artists.length,
         },
         {
-          sets: sets.concat([`${genreKey}::${artistKey}`]),
-          size: 0.1 /// artists.length
+          sets: [genre].concat([`${genre}::${artistKey}`]),
+          size: 0.01 /// artists.length
         }
       ]
-    }).slice(0,20).flat()
-    const genreProps = genres[genreKey]
-    var newSets = [genre].concat(additionalGenreSets, artistsSets)//, genreInteresections)
+    }).slice(0,18).flat()
 
-    console.warn({ genreKey, sets, newSets, genreArtists, additionalGenreSets, genreInteresections })
-
-    draw({ sets: newSets, genre: genreKey })
-
-
-
-    // return newDatum
-    // div.datum(newDatum).call(chart);
-    // addEvents()
-
-    // venn.sortAreas(div, newDatum);
-  }
-
-
-  function renderGenre({ genre }) {
-    return renderIntersectionsWithArtists({ sets: [ genre ]})
-    var artists = getArtistsByGenres([ genre ])
-    // .filter(function(artistKey) {
-    //   return !genreInteresections.find(function(intersection) {
-    //     return intersection.artists.includes(artistKey)
-    //   })
-    // })
     const genreProps = genres[genre]
+    var newSets = [genreSet].concat(additionalGenreSets, artistsSets)//, genreInteresections)
 
-    var genreSet = {
-      genre,
-      sets: [ genre ],
-      size: artists.length,
-      label: ' ',
-      // label: genreProps.props.name,
-      // label: genreProps.html,
-      // label: `${genre} (${artists.length} <h1>artists</h1>)`,
-      artists: artists,
-      // tooltip: `${artists.length} artists in ${datum.sets.join(' & ')} only`,
-    }
+    console.warn({ genre, newSets, genreArtists, additionalGenreSets, genreInteresections })
 
-    var artistsSets = artists.map(function(artistKey) {
-      return [
-        {
-            artist: artistKey,
-            genre,
-            sets: [artistKey],
-            label: getArtist(artistKey).props.label,
-            size: 0.1 // / artists.length,
-        },
-        {
-          sets: [genre, artistKey],
-          size: 0.01  /// artists.length
-        }
-      ]
-    }).flat()
-
-    // var newDatum = [ genre, ...artistsSets ]
-    var sets = [ genreSet, ...artistsSets ]//, genreInteresections)
-    // var newDatum = additionalGenreSets.concat(genre, artistsSets)//, genreInteresections)
-
-    console.warn('renderGenre', { genre, genreProps, sets, artists, })
-
-    draw({ sets, genre })
-
-    genreText.innerHTML = genreProps.html
-
+    return draw({ sets: newSets, genre: genre })
   }
+
 
   function renderArtist(datum) {
     const artist = getArtist(datum.artist)
@@ -330,22 +222,14 @@ export default ({ genres, artists }) => {
 
   function handleAreaClick(datum) {
     const { genre, artist } = datum
-     console.warn('click', genre, artist, { datum })
-    var sets
-    if (artist) {
-      location.hash = `/${genre}/${artist}`
-      // sets = renderArtist(datum)
 
-      // page(`/${genre}/${artist}`)
-      // page(`/?g=${genre}&a=${artist}`)
+    console.warn('click', genre, artist, { datum })
+
+    if (genre && artist) {
+      location.hash = `/${genre}/${artist}`
     } else if (genre) {
       location.hash = `/${genre}`
-      // page(`/${genre}`)
-      // page(`/?g=${genre}`)
-      // sets = renderGenre({ genre })
     }
-    // console.warn({ datum, sets })
-
   }
 
   function handleMouseOver(d, i) {
@@ -381,6 +265,7 @@ export default ({ genres, artists }) => {
   }
 
   let recentSets
+
   function addEvents(args) {
     // div.selectAll("g")
     div.selectAll(".venn-circle")
@@ -420,11 +305,13 @@ export default ({ genres, artists }) => {
       container.classList.remove('active')
     })
     genreText.classList.remove('active')
-    const genreContainer = window.genreContainer = document.querySelector(`#venn [data-venn-sets="${genre}"]`)
+
+    const genreContainer = document.querySelector(`#venn [data-venn-sets="${genre}"]`)
     if (genre && genreContainer) {
 
       // genreContainer.querySelector('path').style.stroke = genres[genre].props.theme
 
+      genreContainer.classList.add('active')
       setTimeout(() => {
 
         const { width, height, top, left } = genreContainer.getBoundingClientRect()
@@ -439,7 +326,7 @@ export default ({ genres, artists }) => {
         genreText.innerHTML = genres[genre].html
         genreText.classList.add('active')
       }, 1000)
-        genreContainer.classList.add('active')
+
 
 
      }
