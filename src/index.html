@@ -2,11 +2,12 @@
   <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <base href="<%= htmlWebpackPlugin.options.baseUrl %>" />
   </head>
   <body>
     <header>
       <h1>
-        <a href="#/"><img height="60" src="./assets/images/logo.png" alt="True Music Cyprus"><span>True Music Cyprus</span></a>
+        <a href="#/"><img height="60" src="assets/images/logo.png" alt="True Music Cyprus"><span>True Music Cyprus</span></a>
       </h1>
       <nav id="navigation-genres">
         <ul class="navigation">
@@ -25,9 +26,13 @@
         </ul>
       </nav>
     </header>
-    <div id="main">
+    <main id="main">
       <div id="venn"></div>
       <div id="page-artist"></div>
-    </div>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2019</p>
+      <p><small><%= process.env.APP_VERSION %></small></p>
+    </footer>
   </body>
 </html>

@@ -8,7 +8,7 @@ const pkg = require('./package.json')
 const data = require('./src/data.json')
 
 const globals = new webpack.DefinePlugin({
-  'APP_VERSION': JSON.stringify(pkg.version),
+  'process.env.APP_VERSION': JSON.stringify(pkg.version),
 })
 
 const config = {
@@ -20,7 +20,7 @@ const config = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: path.join('dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? '/true-music/' : '/',
     filename: '[name].js'
   },
   devServer: {
@@ -33,11 +33,13 @@ const config = {
   plugins: [
     globals,
     new HtmlWebpackPlugin({
-      title: pkg.description,
-      data,
-      template: 'src/index.html',
-      hash: true,
+      baseUrl: process.env.NODE_ENV === 'production' ? '/true-music/' : '/',
       cache: true,
+      data,
+      hash: true,
+      minify: true,
+      template: 'src/index.html',
+      title: pkg.description,
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css"

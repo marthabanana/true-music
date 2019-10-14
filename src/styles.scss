@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'Interstate';
-  src: url('/assets/fonts/interstate-light.otf') format("opentype");
+  src: url('assets/fonts/interstate-light.otf') format("opentype");
 }
 @font-face {
   font-family: 'Interstate Bold';
-  src: url('/assets/fonts/interstate-black.otf') format("opentype");
+  src: url('assets/fonts/interstate-black.otf') format("opentype");
 }
 @font-face {
   font-family: 'Interstate Regular';
-  src: url('/assets/fonts/interstate-regular.otf') format("opentype");
+  src: url('assets/fonts/interstate-regular.otf') format("opentype");
 }
 
 body {
@@ -60,7 +60,7 @@ header {
     display: block;
     width: 50px;
     height: 50px;
-    background: url("/assets/images/menu-icon.png");
+    background: url("assets/images/menu-icon.png");
     background-size: contain;
     position: absolute;
     right: 16px;
