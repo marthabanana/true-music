@@ -27,17 +27,17 @@ body {
   }
 }
 header {
-  padding: 16px;
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  right: 0;
 
   h1 {
+    position: fixed;
+    z-index: 2;
     margin: 0;
     padding: 0;
+    top: 0;
+    left: 0;
     a {
-      display: inline-block;
+      padding: 16px;
+      display: block;
       span {
         display: none;
       }
@@ -56,7 +56,7 @@ footer#main-footer {
   }
 }
 #navigation-genres {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   padding: 16px;
@@ -112,11 +112,13 @@ footer#main-footer {
   }
 }
 #main {
-  position: absolute;
-  top: 80px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  top: 100px;
+}
+#page-venn {
+  position: relative;
+  height: 100%;
+  display: none;
 }
 #venn {
   width: 100%;
@@ -124,13 +126,24 @@ footer#main-footer {
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
 
-  &.is-loading {
-    text.label {
-      display: none;
-    }
-  }
+}
+#page-home {
+  color: #fff;
+  max-width: 350px;
+  text-align: center;
+  line-height: 1.4;
+  font-size: 1em;
+  // display: none;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 0;
+  transition: all 500ms;
+}
+[data-route-path="/"] #page-home {
+  // display: block;
+  height: 300px;
+  margin: 32px auto;
 }
 #page-artist {
   display: none;
@@ -161,6 +174,9 @@ footer#main-footer {
 }
 text.label {
   fill: #fff !important;
+  tspan {
+    transition: all 800ms;
+  }
 }
 div[data-venn-text] {
   color: #eee;
@@ -168,7 +184,7 @@ div[data-venn-text] {
   position: absolute;
   overflow: hidden;
   // transition: all 600ms;
-
+  display: none;
   top: 0;
   left: 50%;
   width: 0;

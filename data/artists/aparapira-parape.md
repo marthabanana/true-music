@@ -9,8 +9,6 @@ genres:
 
 # Aparapira Parape
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+This DJ duo was born off the back of a lifelong friendship between George Papa and Joseph Herodotou, who bonded over musical connections and mutual weirdness. After organising a string of successful warehouse parties in the back alleys of Limassol, these dynamic selectors, became well known for their electric, weird sounding party-starting sets, spinning everything from wonky acid to disco glory.

@@ -315,7 +315,7 @@ export default ({ genres, artists, }) => {
 
         genreText.setAttribute('data-venn-text', genre)
         genreText.setAttribute('style', `
-          top: ${ top + (height / 20) }px;
+          top: ${ (height / 2.5) }px;
           left: ${ left + (width / 6) }px;
           width: ${ width - (width / 3) };
           max-height: ${ height - (height / 2.10)  }px;
