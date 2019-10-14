@@ -5,11 +5,8 @@ theme: "#53b0a5"
 
 # Leftfield House
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+Less of a stand-alone genre and more a catchall term for the unconventional and non-
+conforming, Leftfield House refers to any genre-defying, experimental house music, usually with
+an element of underground ‘quirkiness’. No single sound typifies the category; however it often
+feature acid elements, wavy seapunk references and vaporwave vibes.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
