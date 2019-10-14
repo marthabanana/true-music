@@ -8,46 +8,26 @@
       <h1>
         <a href="#/"><img height="60" src="./assets/images/logo.png" alt="True Music Cyprus"><span>True Music Cyprus</span></a>
       </h1>
-      <ul class="navigation">
-        <%=
-          Object.keys(htmlWebpackPlugin.options.data.genres).reduce(
-            (m, genreKey) => {
-              return `
-                ${m}
-                <li class="navigation-item" data-navigate-to="${genreKey}">
-                  <a href="#/${genreKey}">${htmlWebpackPlugin.options.data.genres[genreKey].props.name}</a>
-                </li>
-              `
-            }
-          , '')
-        %>
-      </ul>
+      <nav id="navigation-genres">
+        <ul class="navigation">
+          <%=
+            Object.keys(htmlWebpackPlugin.options.data.genres).reduce(
+              (m, genreKey) => {
+                return `
+                  ${m}
+                  <li class="navigation-item" data-navigate-to="${genreKey}">
+                    <a href="#/${genreKey}">${htmlWebpackPlugin.options.data.genres[genreKey].props.name}</a>
+                  </li>
+                `
+              }
+            , '')
+          %>
+        </ul>
+      </nav>
     </header>
     <div id="main">
       <div id="venn"></div>
-      <div id="page-artist">
-
-      </div>
+      <div id="page-artist"></div>
     </div>
-    <script type="x-templates">
-        <%=
-          Object.keys(htmlWebpackPlugin.options.data.artists).reduce(function(m, artist) {
-            const { id, html, props } = htmlWebpackPlugin.options.data.artists[artist]
-            return m + `
-              <section id="artist-${id}" class="artist-details">
-                <main>
-                  ${ html }
-                </main>
-                <footer>
-                  <ul>
-                    <li class="previous">&larr;</li>
-                    <li class="next">&rarr;</li>
-                  </ul>
-                </footer>
-              </section>
-            `
-          }, '')
-        %>
-    </script>
   </body>
 </html>
