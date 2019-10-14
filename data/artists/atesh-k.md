@@ -11,6 +11,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Mixing since 1995, Atesh K is a DJ and producer, first releasing his own techno tracks from his small home studio in 2002. Following the international success of his debut album, Atesh has gone on to release tracks with multiple well-known labels around Europe. His style is deeply influenced by the old-school techno of Detroit and Berlin, with elements of tech-house, electronica and breakbeat.
