@@ -9,6 +9,4 @@ genres:
 
 ![](./assets/images/_sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Romina Oikonomidou’s music has the kinetic soundscape of a dark optimistic dystopia within the downtempo spectrum. Also known as Geechemis, this eclectic DJ with an underground dark-rock attitude appreciates a badass bassline – and her sets take audiences on a multi-dimensional psychedelic journey through nostalgic 90s leftfield sounds, with 70s funky elements, soulful hinges and global dubby beats. 
