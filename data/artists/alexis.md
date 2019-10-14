@@ -9,6 +9,4 @@ genres:
 
 ![](./assets/images/_sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Alexis Phase is a Berlin-based, Cypriot artist who stands out for his direct, raw, intense and original style. This eclectic spin doctor plays music from the future, inspired by the present and conscious of the past. 
