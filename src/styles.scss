@@ -44,6 +44,17 @@ header {
     }
   }
 }
+footer#main-footer {
+  font-family: Arial, sans-serif;
+  position: fixed;
+  bottom: 0;
+  font-size: 11px;
+  text-align: center;
+  color: #eee;
+  p {
+    margin: 2px 0;
+  }
+}
 #navigation-genres {
   position: absolute;
   right: 0;
