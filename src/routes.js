@@ -2,52 +2,39 @@ import createDrawing from './draw'
 import createArtist from './artist'
 import createRouter from './router'
 
-
 function home({ renderGenres, venn }) {
-
-
   return {
     enter(ctx) {
-      console.log('[home] enter', ctx)
-
       venn.style.display = 'block'
       renderGenres()
     },
     exit() {
-
       venn.style.display = 'none'
     }
   }
 }
 
 function genre({ renderGenre, venn, }) {
-
-
   return {
     enter({ params }) {
       const { genre } = params
+
       venn.style.display = 'block'
-      console.warn('genre enter', { params })
       renderGenre({ genre, container: venn  })
     },
 
     exit(current, next) {
-
-      console.warn('genre exit', { current, next })
-
       venn.style.display = 'none'
       if (!next.params.artist) {
         Array.from(document.querySelectorAll('#venn [data-venn-sets*="::"] text.label')).forEach(label => {
           label.parentNode.removeChild(label)
         })
-
       }
     }
   }
 }
 
 function artist({ pageArtist, data, }) {
-
   const { artists, genres } = data
 
   const artistsByGenre = Object.keys(genres).reduce((m, genreKey) => {
@@ -56,7 +43,7 @@ function artist({ pageArtist, data, }) {
     )
     return m
   }, {})
-  console.log({artistsByGenre})
+
   return {
     enter({ params }) {
       const { artist, genre } = params
@@ -72,12 +59,11 @@ function artist({ pageArtist, data, }) {
       })
       pageArtist.innerHTML = createArtist(data.artists[artist], { params, data, next, previous })
       pageArtist.style.display = 'block'
+      document.body.scrollTop = 0
     },
 
     exit() {
-      // if (!params.artist) {
-        pageArtist.style.display = 'none'
-      // }
+      pageArtist.style.display = 'none'
     }
   }
 }
@@ -94,7 +80,4 @@ export default ({ data, }) => {
   router('/', home({ renderGenres, venn }))
   router('/:genre', genre({ venn, renderGenre }))
   router('/:genre/:artist', artist({ pageArtist, data, }))
-  // console.log('router', data)
-
-
 }

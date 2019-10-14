@@ -58,23 +58,23 @@ export default ({ genres, artists, }) => {
     })
   }
 
-  function renderGenres({ }={}) {
+  function renderGenres() {
     var genreSets = Object.keys(genres).map(function(genreKey, i) {
       const artists = getArtistsByGenres([genreKey])
       return {
-        genre: genreKey,
         sets: [genreKey],
         label: genreKey,
+        size: artists.length || 0.5,
+        genre: genreKey,
         artists: artists,
-        size: artists.length,
       }
     })
 
     var genreInteresections = getGenreIntersections()
 
-    var sets = genreSets.concat(genreInteresections)
+    var sets = genreInteresections.concat(genreSets)
 
-    draw({ sets })
+    return draw({ sets })
   }
 
   function renderGenre({ genre, }) {
@@ -84,10 +84,10 @@ export default ({ genres, artists, }) => {
     var genreArtists = getArtistsByGenres([ genre ])
 
     var additionalGenreSets = genreInteresections.map(function(intersection) {
-      return intersection.sets.map(function(genreKey) {
+      return intersection.sets.filter(function(genreKey) {
         return genre === genreKey ? null : genreKey
       })
-    }).flat().filter(function(r) { return !!r })
+    }).flat()
     .map(function(genreKey) {
       const genreArtists = getArtistsByGenres([genre, genreKey])
       const uniqueGenreArtists = genreArtists.filter(
@@ -133,11 +133,9 @@ export default ({ genres, artists, }) => {
               size: baseSize / 5
             }
           ]
-        }).slice(0, 7)
+        }).slice(0, 3)
       ).flat()
     }).flat()
-
-    // const genreKey = sets[0]
 
     var genreSet = {
       genre,
@@ -164,7 +162,7 @@ export default ({ genres, artists, }) => {
     }).slice(0,18).flat()
 
     const genreProps = genres[genre]
-    var newSets = [genreSet].concat(additionalGenreSets, artistsSets)//, genreInteresections)
+    var newSets = [genreSet].concat(additionalGenreSets, artistsSets)
 
     console.warn({ genre, newSets, genreArtists, additionalGenreSets, genreInteresections })
 

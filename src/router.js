@@ -1,17 +1,11 @@
-
 import pathToRegExp from 'path-to-regexp'
 import pathMatcher from 'path-match'
 
 function stringify(str) {
   return str.toLowerCase().replace(/\W+/g,' ').trim().replace(/\s+/g, '-')
 }
-const pathMatch = pathMatcher({
-  // path-to-regexp options
-  // sensitive: false,
-  // strict: false,
-  // end: false,
-})
 
+const pathMatch = pathMatcher()
 
 function createRouter({ ctx } = {}) {
   const ROUTES = []
@@ -22,7 +16,6 @@ function createRouter({ ctx } = {}) {
 
   let currentRoute
   function navigate(route) {
-    console.warn('[router] go to', route)
     const matchedRoutes = ROUTES.map(
       r => ({
         ...r,
@@ -35,7 +28,6 @@ function createRouter({ ctx } = {}) {
     if (currentRoute && typeof currentRoute.cb.exit === 'function') {
       document.body.setAttribute(`data-route-exiting`, currentRoute.path)
       document.body.setAttribute(`data-route-exiting-route`, stringify(currentRoute.route))
-      console.warn(`[router] exit ${currentRoute ? currentRoute.path : null}`, { currentRoute, })
       currentRoute.cb.exit(currentRoute || {}, matchedRoutes)
     }
 
@@ -75,7 +67,6 @@ function createRouter({ ctx } = {}) {
           matcher,
           params: pathMatch(route),
         })
-        console.debug('added route', route, ROUTES, matcher.exec(loc))
         if (matcher.exec(loc)) {
           navigate(loc)
         }
