@@ -5,11 +5,8 @@ theme: "#ee7a33"
 
 # New Wave
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+In the late 70s and the early 80s, a new wave of non-mainstream musicians began to emerge,
+shifting away from the blues and classic or progressive rock, incorporating a plethora of diverse
+new influences from across the early punk, dub reggae, funk, art rock, glam pop, kraut rock and
+experimental electronic music spectrums.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
