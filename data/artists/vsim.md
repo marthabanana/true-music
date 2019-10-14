@@ -8,8 +8,6 @@ genres:
 
 # Vsim
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Synonymous with high quality electronic music, Klubd is reserved for only the very best local DJs and international talents. So as the manager, sound technician and resident of the popular nightclub, Andreas Simopoulos – or DJ Vsim – is easily amongst the island’s greats. This vinyl only maestro has a penchant for rare 90s records and spins Detroit techno, Afrofuturistic, acid and house.

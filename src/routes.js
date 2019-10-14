@@ -72,7 +72,7 @@ export default ({ data, }) => {
   const router = createRouter()
 
   const main = document.getElementById('main')
-  const venn = document.getElementById('venn')
+  const venn = document.getElementById('page-venn')
   const pageArtist = document.getElementById('page-artist')
 
   const { renderGenres, renderGenre } = createDrawing(data)
