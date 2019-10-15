@@ -10,6 +10,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Michel Fialas likes to stay on the underground side of music, with an insatiable appetite for the freshest new sounds and an undeniable skill for making even the most careful spectator dance. A founding member of the Lost Promotions party series since 2012, Michel brings people together through music and his sets are no different, merging a balanced flow with a contagious groove and infectious energy.
