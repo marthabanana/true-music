@@ -10,6 +10,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Never one for flashy performances, BillyD prefers to focus on staying in the moment during his sets, which provide a constant and refined rhythmic flow, guiding revellers through the back alleys of techno music. A presence on the underground music scene in Cyprus for nearly a decade, BillyD still dedicates every day to refining his art, embodying the true sentiment of underground music.
