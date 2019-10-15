@@ -9,8 +9,6 @@ genres:
 
 # Aristodemos
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+A serious player on the underground music scene since 2011, Aristodemos has a reputation for concise and on point, cross-genre sets. Whether he is selecting funk and disco rarities in sexy cocktail spots; grooving to house classics at major beach bars or piling on the pressure with ravey breaks in dark clubs, this DJ and co-founder of Honest Electronics plays at all the major festivals and key events on the island.

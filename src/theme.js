@@ -35,6 +35,9 @@ export default ({ data }) => {
       div[data-venn-text="${genre}"] h1 {
         color: ${ theme };
       }
+      body[data-route-path="/${ genre }"] div[data-venn-text="${genre}"] {
+        display: block;
+      }
       body[data-route-path^="/${ genre }/"] {
         background-color: ${ theme };
       }

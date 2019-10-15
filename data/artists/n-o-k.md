@@ -9,8 +9,6 @@ genres:
 
 # n.o.k
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+NOK is a real smooth groover, whose sultry sound travels through the realms of soul, jazz, blues and funk. With a burgeoning DJ career born out of personal musical mood swings, this tuned-in talent combines different moods across the funk and house spectrum. Currently obsessed with Arabic funk, NOK is also influenced by the rich cultures and heady beats of Africa, Turkey, Brazil and Japan.

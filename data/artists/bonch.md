@@ -8,8 +8,6 @@ genres:
 
 # Bonch
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Life is a party to Christos Voniatis (aka Bonch), an electronic music enthusiast and pure DJ at heart, whose boundary-defying style varies from house to techno and everything in between. With a deep, open-minded, fresh and honest approach to the music, Bonch stands out for his varied musical flow which can’t be pigeonholed and fills dancefloors across the island.

@@ -7,8 +7,6 @@ genres:
 
 # ARGY K 
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Well renowned on the music scene since the 00’s, Argy K is both a DJ and producer, releasing a huge collection of his own tracks, while rocking the decks at venues and events across Europe, including Cyprus, Greece, Berlin, Finland and France. Always keeping his sets groovy with driving basslines, Argy K mixes deep techno, progressive house, minimal and acid.

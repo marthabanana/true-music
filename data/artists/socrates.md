@@ -10,8 +10,6 @@ genres:
 
 # Socrates
 
-![](./assets/images/_sample.png)
+![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+As the resident DJ and booker for the iconic Klubd in Nicosia, Socrates is as tuned-in and connected as they get on the music scene. This notorious spin master is passionate about vinyl and has a deep-seated interest in the real roots of the music he includes in his unique and uplifting sets, which predominantly lean towards the techno, house, trance, electro, breaks and trip-hop persuasions.
