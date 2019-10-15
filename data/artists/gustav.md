@@ -11,6 +11,6 @@ genres:
 
 # Gustav
 
-![](./assets/images/sample.png)
+![](./assets/images/GUSTAV.jpg)
 
 Nine years living in London, soaking in the city’s vibrant electronic music scene, has had a profound influence on Gustav’s unique style. Five years on and this Klubd resident and founder of KATHXHTIKO day parties, is known for his slick mixing and intuitive selection, delivering sublime electronic sounds that keep the island’s hottest dancefloors grooving until the sun comes up.
