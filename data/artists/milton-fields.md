@@ -12,6 +12,4 @@ genres:
 
 ![](./assets/images/sample.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+An intriguingly unique character, Milton – also known as Eugene Skull – is well known on the underground music scene in Cyprus as the founder of the provocative XRC foundation (series of events), artistic director of Disco Sucks and a core member of Honest Electronics. 
