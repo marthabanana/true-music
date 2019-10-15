@@ -10,6 +10,6 @@ genres:
 
 # Milton Fields
 
-![](./assets/images/sample.png)
+![](./assets/images/MILTONFIELDS.jpg)
 
 An intriguingly unique character, Milton – also known as Eugene Skull – is well known on the underground music scene in Cyprus as the founder of the provocative XRC foundation (series of events), artistic director of Disco Sucks and a core member of Honest Electronics. 
