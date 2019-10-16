@@ -5,11 +5,4 @@ theme: "#ae485d"
 
 # Disco
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
- **Duis aute irure dolor in reprehenderit** in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Named after the French word for the dance clubs that first emerged in the 1960s, disco music was always intended to be danced to. An upbeat incorporation of soul, funk, pop, Motown and even salsa, the genre developed in the 60s, had become a phenomenon by the 70s and was an important precursor to the club music of the 90s.

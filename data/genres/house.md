@@ -5,16 +5,4 @@ theme: "#f5ae33"
 
 # House
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. **Duis aute irure dolor in reprehenderit** in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Since the early 80s when it first came about, house music has become the key ingredient of modern club music as we know it. Named after the legendary Warehouse club in Chicago, the genre evolved out of studio experiments with new technology by DJs like Frankie Knuckles and Ron Hardy. Soul, funk and disco all influence the genre.

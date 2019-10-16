@@ -10,8 +10,6 @@ genres:
 
 # Sixonesix
 
-![](./assets/images/sample.png)
+![](./assets/images/SIXONESIX.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Constantinos – a.k.a Sixonesix – is a DJ born in Nicosia, Cyprus. Resident at Sousami bar in Limassol and co-founder of Panic Soup, you can also catch Sixonesix spinning tracks at various venues and parties around the island. His music is very much his own unique voice and this local artist can often be heard blending world music and distorted guitar sounds in his mostly post punk, disco and house sets. He also has an unconditional love for vinyl records and an intriguing story to tell.  

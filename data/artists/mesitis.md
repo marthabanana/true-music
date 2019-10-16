@@ -9,8 +9,6 @@ genres:
 
 # Mesitis
 
-![](./assets/images/sample.png)
+![](./assets/images/MESITIS.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+This experienced DJ and avid record collector has made a solid name for himself since he first rocked the scene back in the early days of Cyprus’ underground music scene. Today the KlubD resident uses his skills behind the decks to infuse dancefloors with infectious deep driven electronic grooves, using music to bring a sense of harmony, balance and feel-good vibes to his crowd.

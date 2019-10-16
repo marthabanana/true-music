@@ -9,8 +9,6 @@ genres:
 
 # Kontello
 
-![](./assets/images/sample.png)
+![](./assets/images/TM.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Taking his audiences on a musical journey unlike anything they have ever heard before, Kontello is a wizard of intricate sound and skilful mixing. Deconstructing and reconstructing the music, he seamlessly blends numerous tracks together to produce his own unique twist on how the sounds are meant to be heard and perceived. 

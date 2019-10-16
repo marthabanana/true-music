@@ -11,8 +11,6 @@ genres:
 
 # Mohama
 
-![](./assets/images/sample.png)
+![](./assets/images/MOHAMA.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Formerly known as Mohama Tajalof – this local, Cyprus-based artist is the founder of the ‘Subaerial’ micro-ceremonies and the co-founder of the ‘C'est démon!’ and ‘Programmed For Love’ events series, that mainly take place on the island. Mohama always creates with the intention of serving deep and from within, without any chains or restrictions on either her material or her unique identity.

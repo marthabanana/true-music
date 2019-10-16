@@ -7,8 +7,6 @@ genres:
 
 # RAIF
 
-![](./assets/images/sample.png)
+![](./assets/images/TM.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+DJing was always more of a passion than a job to Romanian born DJ Raif. That is until he realised his hobby was quickly becoming his way of life, which in turn catalysed his jump onto the DJ bandwagon in 2006. Since then, he’s played at parties, venues and clubs around the island, combining techno elements with funky grooves to bring joy to the souls of true underground house music lovers in Cyprus.

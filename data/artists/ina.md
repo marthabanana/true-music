@@ -11,8 +11,6 @@ genres:
 
 # ina
 
-![](./assets/images/sample.png)
+![](./assets/images/INA.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+Music came as second nature to Constantina Apostolescu (aka INA) who spent her childhood surrounded by cassette culture and dance radio and was exposed to classic records and smooth vinyl tracks before she could even talk. Once she stepped behind the decks, the emphasis of her unpredictable sets was on 90s house, minimal, groovy UKG and touches of electro.

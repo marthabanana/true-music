@@ -11,8 +11,6 @@ genres:
 
 # Mr. Fox
 
-![](./assets/images/sample.png)
+![](./assets/images/TM.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+A music aficionado, obsessive record collector, producer, promoter, co-founder of Disco Dystopia events and owner of Sousami Bar in Limassol, Mr. Fox is one of the major players on the emerging underground DJ scene in Cyprus. As a performer, he has honed his skills by mixing predominantly with vinyl, while his ever-growing passion for music also lead him to write and produce his own tracks for several projects. 
