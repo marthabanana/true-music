@@ -56,6 +56,6 @@ watcher.on('all', (event, filePath) => {
   }
   else if (fileName.match(/\.(png|jpe?g|gif)$/)) {
     console.log('[parse] image', fileName)
-    fs.copyFileSync(filePath, path.join(__dirname, '../src/assets/images', fileName))
+    fs.copyFileSync(filePath, path.join(__dirname, '../dist/assets/images', fileName))
   }
 })
