@@ -5,11 +5,4 @@ theme: "#2f5fb3"
 
 # Hip Hop
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+More than just a music genre, Hip Hop also became an underground cultural movement amongst African Americans and Latino Americans in the 1970s. First emerging at block parties in the Bronx in New York, the genre combines stylised rhythmic music with rapped vocals which often protested the legal institutions’ treatment of minorities in the US. 
