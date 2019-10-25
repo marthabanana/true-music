@@ -5,11 +5,4 @@ theme: "orange"
 
 # Soul
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Characterised by catchy rhythms, handclaps, spontaneous body movements and the intense feeling – or soul – behind its vocals, Soul music first originated in the US in the 1950s and 60s. Predominantly popular within the African American communities who gave birth to the genre, Soul is heavily influenced by elements of gospel music, R&B and jazz.
