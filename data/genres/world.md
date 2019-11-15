@@ -5,11 +5,4 @@ theme: "blue"
 
 # World
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Used in the West to categorise different ethnic music styles from around the globe, World Music was first commercialised in the 1980s and is characterised by its inclusivity and versatility. The genre encompasses a variety of forms, including Indigenous, Folk and Neotraditional Music, and in recent years has expanded to incorporate subgenres such as Ethnic Fusion and Worldbeat. 
