@@ -106,7 +106,8 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: '[contenthash].[ext]'
+              name: '[contenthash].[ext]',
+              outputPath: 'assets/images'
             }
           }
         ]

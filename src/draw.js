@@ -309,23 +309,41 @@ export default ({ genres, artists, }) => {
       // genreContainer.querySelector('path').style.stroke = genres[genre].props.theme
 
       genreContainer.classList.add('active')
-      setTimeout(() => {
-
-        const { width, height, top, left } = genreContainer.getBoundingClientRect()
+      // setTimeout(() => {
 
         genreText.setAttribute('data-venn-text', genre)
-        genreText.setAttribute('style', `
-          top: ${ (height / 2.5) }px;
-          left: ${ left + (width / 6) }px;
-          width: ${ width - (width / 3) };
-          max-height: ${ height - (height / 2.10)  }px;
-        `)
+
         genreText.innerHTML = genres[genre].html
         genreText.classList.add('active')
-      }, 1000)
 
 
+        function adjust({ count=100, widthA=0, heightA=0, topA=0, leftA=0 }={}) {
+          count--
+          setTimeout(_ => {
+            const { width, height, top, left } = genreContainer.getBoundingClientRect()
 
+            console.warn('adjustment', count, {width, height, top, left},{widthA,heightA,topA,leftA})
+            if (count <= 0 || (widthA === width && heightA === height && topA === top && leftA === left)) {
+              // stop
+              console.warn('stop adjustment')
+              return
+            }
+            genreText.setAttribute('style', `
+              left: ${left + (width*0.12)}px;
+              top: ${top + (height * 0.12)}px;
+              width: ${ width * 0.75 }px;
+              max-height: ${ height * 0.65  }px;
+            `)
+
+            widthA = width
+            heightA = height
+            topA = top
+            leftA = left
+
+            adjust({count, widthA, heightA, topA, leftA })
+          }, 100)
+        }
+        adjust()
      }
      else {
 

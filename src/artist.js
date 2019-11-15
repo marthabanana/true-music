@@ -1,8 +1,21 @@
+import navArrows from './assets/images/nav-prev-next.png'
+console.warn({
+  navArrows
+})
 export default ({ id, html, props: { name, genres } }, { params={}, data, next, previous }) => {
   const { genre='' } = params
   const nextArtist = next && data.artists[next]
   const previousArtist = previous && data.artists[previous]
-
+  const nextArtistStyle = `
+    background-image: url('${ navArrows }');
+    background-position: right center;
+    left: 0;
+  `
+  const previousArtistStyle = `
+    background-image: url('${ navArrows }');
+    background-position: left center;
+    right: 0;
+  `
   return `
     <section id="artist-${id}" class="artist-details" data-genre-artist="${ genre }">
       <main>
@@ -19,20 +32,20 @@ export default ({ id, html, props: { name, genres } }, { params={}, data, next, 
         <ul class="artist-details--paging">
           ${
             previousArtist ? `
-              <li class="artist-details--paging-item">
+              <li class="artist-details--paging-item paging-item paging-item--previous">
                 <a href="#/${ genre }/${ previous }">
-                  <span>&larr;</span>
                   ${ previousArtist.props.name }
+                  <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
                 </a>
               </li>
             ` : ''
           }
           ${
             nextArtist ? `
-              <li class="artist-details--paging-item">
+              <li class="artist-details--paging-item paging-item paging-item--next">
                 <a href="#/${ genre }/${ next }">
+                  <span class="paging-item--arrow" style="${nextArtistStyle}">&rarr;</span>
                   ${ nextArtist.props.name }
-                  <span>&rarr;</span>
                 </a>
               </li>
             ` : ''
