@@ -330,7 +330,7 @@ export default ({ genres, artists, }) => {
             }
             genreText.setAttribute('style', `
               left: ${left + (width*0.12)}px;
-              top: ${top + (height * 0.12)}px;
+              top: ${top + (height * 0.25)}px;
               width: ${ width * 0.75 }px;
               max-height: ${ height * 0.65  }px;
             `)
