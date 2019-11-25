@@ -3,7 +3,9 @@
 const fs = require('fs')
 const path = require('path')
 const yamlFront = require('yaml-front-matter')
-const md = require('markdown-it')()
+const md = require('markdown-it')({
+  html: true,
+})
 const chokidar = require('chokidar')
 
 const dataPath = path.join(__dirname, '../', 'data')
