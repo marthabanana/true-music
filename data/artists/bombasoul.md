@@ -1,6 +1,6 @@
 ---
 name: Bombasoul
-label: B
+label: BOM
 genres:
   - other
 ---
