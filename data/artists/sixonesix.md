@@ -1,6 +1,6 @@
 ---
 name: Sixonesix
-label: S
+label: SIX
 genres:
   - house
   - disco
