@@ -1,6 +1,6 @@
 ---
 name: RAW SILVER
-label: RS
+label: RAW
 genres:
   - techno
   - leftfield-house
