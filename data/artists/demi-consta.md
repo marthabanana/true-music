@@ -1,6 +1,6 @@
 ---
 name: Demi Consta
-label: DC
+label: DEM
 genres:
   - house
   - techno
