@@ -1,6 +1,6 @@
 ---
 name: Vsim
-label: V
+label: VSI
 genres:
   - house
   - techno
