@@ -1,6 +1,6 @@
 ---
 name: ALEX TOMB
-label: AT
+label: ATO
 genres:
   - techno
 ---
