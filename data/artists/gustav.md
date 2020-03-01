@@ -1,6 +1,6 @@
 ---
 name: Gustav
-label: G
+label: GUS
 genres:
   - house
   - techno
