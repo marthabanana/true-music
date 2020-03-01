@@ -1,6 +1,6 @@
 ---
 name: Patsas
-label: P
+label: PAT
 genres:
   - house
   - disco
