@@ -1,6 +1,6 @@
 ---
 name: Rob Fleming
-label: RF
+label: ROB
 genres:
   - new-wave
   - funk
