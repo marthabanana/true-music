@@ -1,6 +1,6 @@
 ---
 name: Georges D'André
-label: GD
+label: GEO
 genres:
   - house
   - disco
