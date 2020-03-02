@@ -1,6 +1,6 @@
 ---
 name: Barlic Gutter
-label: BG
+label: BAR
 genres:
   - house
   - disco
