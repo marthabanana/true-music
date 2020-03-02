@@ -1,6 +1,6 @@
 ---
 name: BillyD
-label: B
+label: BIL
 genres:
   - house
   - techno
