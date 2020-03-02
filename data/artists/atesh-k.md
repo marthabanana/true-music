@@ -1,6 +1,6 @@
 ---
 name: Atesh K.
-label: AK
+label: ATE
 genres:
   - techno
   - break-beat
