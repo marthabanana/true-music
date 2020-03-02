@@ -1,6 +1,6 @@
 ---
 name: Bonch
-label: B
+label: BON
 genres:
   - techno
   - tech-house
