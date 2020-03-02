@@ -22,7 +22,7 @@ body {
   font-size: 1.3em;
 
   &:not([data-route-route="genre-artist"]) {
-    background: url("/assets/images/bg.png") no-repeat 0 0 ;
+    background: #1d1918 url("assets/images/bg.png") no-repeat 0 0 ;
     background-attachment: fixed;
     background-size: cover;
   }
