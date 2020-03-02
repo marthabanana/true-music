@@ -1,6 +1,6 @@
 ---
 name: Kontello
-label: K
+label: KON
 genres:
   - house
   - techno
