@@ -1,6 +1,6 @@
 ---
-name: Alexis
-label: A
+name: ALEXIS
+label: LXS
 genres:
   - other
 ---
