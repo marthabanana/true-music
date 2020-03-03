@@ -1,6 +1,6 @@
 ---
-name: Aparapira Parape
-label: AP
+name: APARAPIRA PARAPE
+label: APA
 genres:
   - house
   - disco
