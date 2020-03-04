@@ -1,10 +1,11 @@
 ---
-name: Mesitis
-label: M
+name: MESITIS
+label: MES
 genres:
   - house
   - techno
   - break-beat
+image: ./assets/images/MESITIS.png
 ---
 
 # Mesitis
