@@ -1,10 +1,11 @@
 ---
-name: n.o.k
-label: N
+name: N.O.K
+label: NOK
 genres:
   - house
   - disco
   - funk
+image: ./assets/images/NOK.png
 ---
 
 # n.o.k
