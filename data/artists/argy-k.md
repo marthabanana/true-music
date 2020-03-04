@@ -1,8 +1,9 @@
 ---
 name: ARGY K 
-label: AK
+label: ARG
 genres:
   - techno
+image: ./assets/images/ARGYK.png
 ---
 
 # ARGY K 
