@@ -1,6 +1,6 @@
 ---
 name: Mohama
-label: M
+label: MOH
 genres:
   - house
   - disco
