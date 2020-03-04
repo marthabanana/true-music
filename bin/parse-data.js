@@ -15,11 +15,13 @@ function parseFile(filePath) {
   if (filePath.match(/\.md$/)) {
     console.log('[parse] markdown', fileName)
     const contents = fs.readFileSync(filePath, 'utf-8')
+    const { mtime: lastModified } = fs.statSync(filePath)
     const { __content, ...props } = yamlFront.loadFront(contents)
     const html = md.render(__content)
     return {
       id: filePath.split('/').slice(-1).join('::').replace(/\..+$/,''),
-      path: filePath,
+      // path: filePath,
+      lastModified,
       props,
       html,
     }

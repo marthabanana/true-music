@@ -10,7 +10,9 @@
   font-family: 'Interstate Regular';
   src: url('assets/fonts/interstate-regular.otf') format("opentype");
 }
-
+body,html {
+  height: 100%;
+}
 body {
   background-color: #1d1918;
   padding: 0;
@@ -19,8 +21,13 @@ body {
   font-family: Interstate;
   font-size: 1.3em;
 
+  &:not([data-route-route="genre-artist"]) {
+    background: #1d1918 url("./assets/images/bg.png") no-repeat 0 0 ;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
   &[data-route-exiting] {
-    background-color: red;
     text.label {
       display: none;
     }
@@ -117,7 +124,7 @@ footer#main-footer {
 }
 #page-venn {
   position: relative;
-  height: 100%;
+  height: 70%;
   display: none;
 }
 #venn {
@@ -126,26 +133,55 @@ footer#main-footer {
   position: absolute;
   top: -60px;
   left: 0;
-
+  overflow: hidden;
 }
 #page-home {
   color: #fff;
-  max-width: 500px;
+  max-width: 940px;
   text-align: center;
   line-height: 1.4;
-  font-size: 1.4em;
-  // display: none;
-  margin: 0 auto;
+  font-size: 1.3em;
+  display: none;
+  margin: 0 auto 32px;
+  padding: 0 32px;
   overflow: hidden;
-  height: 0;
-  transition: all 500ms;
+  // height: 0;
+  // transition: all 500ms;
 }
+
+#home-intro--long {
+  display: none;
+}
+#home-intro--short {}
+
+
 [data-route-path="/"] #page-home {
-  // display: block;
-  height: 400px;
+  // height: 400px;
   margin: 32px auto;
 }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  [data-route-path="/"] #page-home {
+    // height: 400px;
+    // margin: 32px auto;
+  }
+
+  body:not([data-route-route="genre"]) #page-venn {
+    height: 100%;
+  }
+  #home-intro--long {
+    display: block;
+  }
+  #home-intro--short {
+    display: none;
+  }
+}
+
 #page-artist {
+  display: none;
+}
+#page-genre {
   display: none;
 }
 .venntooltip {
@@ -164,6 +200,11 @@ footer#main-footer {
   cursor: pointer;
   &.active {
     cursor: default;
+
+    text.label {
+      font-size: 3vw;
+      font-weight: bold;
+    }
   }
 }
 .venn-circle path {
@@ -203,23 +244,29 @@ div[data-venn-text] {
   }
 }
 
-
+.genre-details,
 .artist-details {
   padding: 20px;
   color: #fff;
   line-height: 1.65;
-  h1 {
-    font-family: Interstate Regular;
-    font-size: 4em;
-    line-height: 1;
-    text-transform: uppercase;
-    margin-top: 0;
-  }
   main {
     width: 550px;
     max-width: 90%;
     margin: 0 auto;
     text-align: center;
+    h1 {
+      font-family: Interstate Regular;
+      font-size: 4em;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+    hr {
+      margin: 60px 0;
+      border: none;
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
   }
   strong {
     font-family: Interstate Regular;
@@ -232,6 +279,7 @@ div[data-venn-text] {
   img {
     width: 280px;
     max-width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -308,3 +356,43 @@ div[data-venn-text] {
   }
 }
 .paging-item--previous {}
+
+.genre-details {
+  footer {
+    text-align: center;
+  }
+}
+.genre-artists {
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-gap: 20px;
+  list-style:none;
+  margin: 60px auto;
+  width: 80%;
+  padding: 0;
+}
+.genre-artists--title {
+  font-size: 1.7em;
+}
+.genre-artists--artist {
+  > a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+  }
+  // * {
+  //   display: none;
+  // }
+  h1 {
+    margin: 0 !important;
+    color: #fff !important;
+  }
+  // h1,
+  // p:nth-of-type(1) {
+  //   display: block;
+  //   margin: 0;
+  //   img {
+  //     display: block;
+  //   }
+  // }
+}

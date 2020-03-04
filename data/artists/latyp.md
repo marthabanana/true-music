@@ -1,6 +1,6 @@
 ---
 name: Latyp
-label: L
+label: LAT
 genres:
   - house
   - techno

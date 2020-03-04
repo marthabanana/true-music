@@ -1,30 +1,47 @@
 import createDrawing from './draw'
 import createArtist from './artist'
+import createGenre from './genre'
 import createRouter from './router'
 
-function home({ renderGenres, venn }) {
+function home({ renderGenres, venn, homeEl }) {
   return {
     enter(ctx) {
       venn.style.display = 'block'
+      homeEl.style.display = 'block'
       renderGenres()
     },
     exit() {
       venn.style.display = 'none'
+      homeEl.style.display = 'none'
     }
   }
 }
 
-function genre({ renderGenre, venn, }) {
+function genre({ pageGenre, renderGenre, venn, data, }) {
   return {
     enter({ params }) {
       const { genre } = params
 
+      const artists = Object.keys(data.artists).filter(
+        artist => data.artists[artist].props.genres.indexOf(genre) !== -1
+      ).map(
+        artist => data.artists[artist]
+      ).sort(
+        ({ lastModified: a }, { lastModified: b}) => a > b ? -1 : 0
+      )
+
       venn.style.display = 'block'
-      renderGenre({ genre, container: venn  })
+      pageGenre.style.display = 'block'
+
+      pageGenre.innerHTML = createGenre(data.genres[genre], { artists, })
+      requestAnimationFrame(() => renderGenre({ genre, container: venn  }))
+
     },
 
     exit(current, next) {
       venn.style.display = 'none'
+      pageGenre.style.display = 'none'
+
       if (!next.params.artist) {
         Array.from(document.querySelectorAll('#venn [data-venn-sets*="::"] text.label')).forEach(label => {
           label.parentNode.removeChild(label)
@@ -71,13 +88,15 @@ function artist({ pageArtist, data, }) {
 export default ({ data, }) => {
   const router = createRouter()
 
+  const homeEl = document.getElementById('page-home')
   const main = document.getElementById('main')
   const venn = document.getElementById('page-venn')
   const pageArtist = document.getElementById('page-artist')
+  const pageGenre = document.getElementById('page-genre')
 
   const { renderGenres, renderGenre } = createDrawing(data)
 
-  router('/', home({ renderGenres, venn }))
-  router('/:genre', genre({ venn, renderGenre }))
+  router('/', home({ renderGenres, venn, homeEl }))
+  router('/:genre', genre({ pageGenre, data, venn, renderGenre }))
   router('/:genre/:artist', artist({ pageArtist, data, }))
 }

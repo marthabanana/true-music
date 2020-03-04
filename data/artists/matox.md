@@ -1,6 +1,6 @@
 ---
 name: Matox
-label: M
+label: MAT
 genres:
   - house
   - techno

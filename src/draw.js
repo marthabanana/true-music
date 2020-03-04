@@ -140,7 +140,7 @@ export default ({ genres, artists, }) => {
       genre,
       sets: [ genre ],
       size: 500,
-      label: ` `,
+      label: genre,
       artists: genreArtists,
       // tooltip: `${artists.length} artists in ${datum.sets.join(' & ')} only`,
     }
@@ -313,8 +313,9 @@ export default ({ genres, artists, }) => {
 
         genreText.setAttribute('data-venn-text', genre)
 
-        genreText.innerHTML = genres[genre].html
-        genreText.classList.add('active')
+        // genreText.innerHTML = genres[genre].html
+        // genreText.innerHTML = `<h1>${genres[genre].props.name}</h1>`
+        // genreText.classList.add('active')
 
 
         function adjust({ count=100, widthA=0, heightA=0, topA=0, leftA=0 }={}) {
@@ -343,7 +344,7 @@ export default ({ genres, artists, }) => {
             adjust({count, widthA, heightA, topA, leftA })
           }, 100)
         }
-        adjust()
+        // adjust()
      }
      else {
 

@@ -1,6 +1,6 @@
 ---
 name: Nicolas G
-label: NG
+label: NIC
 genres:
   - house
   - techno

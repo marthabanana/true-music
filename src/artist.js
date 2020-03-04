@@ -1,7 +1,5 @@
 import navArrows from './assets/images/nav-prev-next.png'
-console.warn({
-  navArrows
-})
+
 export default ({ id, html, props: { name, genres } }, { params={}, data, next, previous }) => {
   const { genre='' } = params
   const nextArtist = next && data.artists[next]

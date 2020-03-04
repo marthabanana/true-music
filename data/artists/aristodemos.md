@@ -1,6 +1,6 @@
 ---
 name: Aristodemos
-label: A
+label: ARI
 genres:
   - house
   - electro

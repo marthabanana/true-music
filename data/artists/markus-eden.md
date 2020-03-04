@@ -1,6 +1,6 @@
 ---
 name: Markus Eden
-label: ME
+label: MRK
 genres:
   - house
   - disco

@@ -1,6 +1,6 @@
 ---
 name: Geechemist
-label: G
+label: GEE
 genres:
   - other
 ---

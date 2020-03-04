@@ -1,6 +1,6 @@
 ---
 name: MANIC MAIK
-label: MM
+label: MAN
 genres:
   - house
   - techno
