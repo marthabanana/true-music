@@ -1,6 +1,6 @@
 ---
 name: Plus One
-label: PO
+label: PLU
 genres:
   - other
 ---
