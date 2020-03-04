@@ -1,6 +1,6 @@
 ---
 name: Milton Fields
-label: MF
+label: MIL
 genres:
   - electro
   - post-punk
