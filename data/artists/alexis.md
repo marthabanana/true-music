@@ -3,7 +3,7 @@ name: ALEXIS
 label: LXS
 genres:
   - techno
-  image: ./assets/images/ALEXIS.png
+image: ./assets/images/ALEXIS.png
 ---
 
 # Alexis
