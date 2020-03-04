@@ -1,10 +1,11 @@
 ---
-name: Kontello
-label: K
+name: KONTELLO
+label: KON
 genres:
   - house
   - techno
   - tech-house
+image: ./assets/images/TM.png
 ---
 
 # Kontello
