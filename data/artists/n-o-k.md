@@ -1,6 +1,6 @@
 ---
 name: n.o.k
-label: N
+label: NOK
 genres:
   - house
   - disco
