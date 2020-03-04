@@ -1,5 +1,5 @@
 ---
-name: Aparapira Parape
+name: APARAPIRA PARAPE
 label: APA
 genres:
   - house
