@@ -1,6 +1,6 @@
 ---
 name: Michel Fialas
-label: MF
+label: MIC
 genres:
   - house
   - techno
