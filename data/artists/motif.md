@@ -1,6 +1,6 @@
 ---
 name: Motif
-label: M
+label: MOT
 genres:
   - techno
 ---
