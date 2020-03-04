@@ -1,9 +1,10 @@
 ---
-name: Latyp
-label: L
+name: LATYP
+label: LAT
 genres:
   - house
   - techno
+image: ./assets/images/TM.png
 ---
 
 # Latyp
