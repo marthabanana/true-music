@@ -1,9 +1,10 @@
 ---
-name: Bonch
-label: B
+name: BONCH
+label: BON
 genres:
   - techno
   - tech-house
+image: ./assets/images/BONCH.png
 ---
 
 # Bonch
