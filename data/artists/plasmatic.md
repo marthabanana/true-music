@@ -1,9 +1,10 @@
 ---
-name: Plasmatik
-label: P
+name: PLASMATIK
+label: PLA
 genres:
   - house
   - techno
+image: ./assets/images/PLASMATIK.png
 ---
 
 # Plasmatik
