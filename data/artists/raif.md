@@ -1,6 +1,6 @@
 ---
 name: RAIF
-label: R
+label: RAI
 genres:
   - house
 ---

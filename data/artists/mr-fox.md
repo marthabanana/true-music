@@ -1,6 +1,6 @@
 ---
 name: Mr. Fox
-label: MF
+label: FOX
 genres:
   - house
   - disco

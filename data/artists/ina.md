@@ -1,6 +1,6 @@
 ---
 name: ina
-label: I
+label: INA
 genres:
   - house
   - techno

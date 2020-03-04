@@ -1,6 +1,6 @@
 ---
 name: Fantis
-label: F
+label: FAN
 genres:
   - house
   - techno

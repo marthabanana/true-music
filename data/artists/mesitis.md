@@ -1,6 +1,6 @@
 ---
 name: Mesitis
-label: M
+label: MES
 genres:
   - house
   - techno

@@ -1,6 +1,6 @@
 ---
 name: Socrates
-label: S
+label: SOC
 genres:
   - house
   - techno

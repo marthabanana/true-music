@@ -13,6 +13,9 @@ export default ({ data }) => {
       g[data-venn-sets="${genre}"].active ~ g.venn-circle {
         visibility: visible;
       }
+      g[data-venn-sets="${genre}"].active text.label {
+        fill: ${theme} !important;
+      }
       g[data-venn-sets="${genre}"] {
         visibility: visible !important;
         text-transform: uppercase;
@@ -37,6 +40,13 @@ export default ({ data }) => {
       }
       body[data-route-path="/${ genre }"] div[data-venn-text="${genre}"] {
         display: block;
+      }
+      body[data-route-path="/${ genre }"] main hr,
+      body[data-route-path="/${ genre }"] main h1,
+      body[data-route-path="/${ genre }"] main h2,
+      body[data-route-path="/${ genre }"] main h4,
+      body[data-route-path="/${ genre }"] main h3 {
+        color: ${ theme };
       }
       body[data-route-path^="/${ genre }/"] {
         background-color: ${ theme };

@@ -1,6 +1,6 @@
 ---
 name: Plasmatik
-label: P
+label: PLA
 genres:
   - house
   - techno

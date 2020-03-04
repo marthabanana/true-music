@@ -1,6 +1,6 @@
 ---
 name: Slow
-label: S
+label: SLO
 genres:
   - house
   - techno

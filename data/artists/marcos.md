@@ -1,6 +1,6 @@
 ---
 name: Marcos
-label: M
+label: MRC
 genres:
   - house
   - disco

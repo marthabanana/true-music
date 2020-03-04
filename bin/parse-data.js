@@ -3,7 +3,9 @@
 const fs = require('fs')
 const path = require('path')
 const yamlFront = require('yaml-front-matter')
-const md = require('markdown-it')()
+const md = require('markdown-it')({
+  html: true,
+})
 const chokidar = require('chokidar')
 
 const dataPath = path.join(__dirname, '../', 'data')
@@ -13,11 +15,13 @@ function parseFile(filePath) {
   if (filePath.match(/\.md$/)) {
     console.log('[parse] markdown', fileName)
     const contents = fs.readFileSync(filePath, 'utf-8')
+    const { mtime: lastModified } = fs.statSync(filePath)
     const { __content, ...props } = yamlFront.loadFront(contents)
     const html = md.render(__content)
     return {
       id: filePath.split('/').slice(-1).join('::').replace(/\..+$/,''),
-      path: filePath,
+      // path: filePath,
+      lastModified,
       props,
       html,
     }
@@ -56,6 +60,6 @@ watcher.on('all', (event, filePath) => {
   }
   else if (fileName.match(/\.(png|jpe?g|gif)$/)) {
     console.log('[parse] image', fileName)
-    fs.copyFileSync(filePath, path.join(__dirname, '../src/assets/images', fileName))
+    fs.copyFileSync(filePath, path.join(__dirname, '../dist/assets/images', fileName))
   }
 })

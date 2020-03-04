@@ -5,6 +5,7 @@ genres:
   - house
   - disco
   - techno
+image: ./assets/images/APARAPIRA.png
 ---
 
 # Aparapira Parape

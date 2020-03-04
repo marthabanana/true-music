@@ -1,6 +1,6 @@
 ---
 name: Sofronis
-label: S
+label: SOF
 genres:
   - other
 ---

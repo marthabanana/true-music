@@ -1,6 +1,6 @@
 ---
 name: ARGY K 
-label: AK
+label: ARG
 genres:
   - techno
 ---
