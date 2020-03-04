@@ -1,6 +1,6 @@
 ---
 name: Marianna
-label: M
+label: MAR
 genres:
   - post-punk
   - new-wave
