@@ -1,5 +1,5 @@
 ---
-name: Alexis
+name: ALEXIS
 label: LXS
 genres:
   - other
