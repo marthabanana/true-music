@@ -1,9 +1,10 @@
 ---
-name: Fantis
+name: FANTIS
 label: FAN
 genres:
   - house
   - techno
+image: ./assets/images/TM.png
 ---
 
 # Fantis

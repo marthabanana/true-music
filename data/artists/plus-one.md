@@ -1,14 +1,17 @@
 ---
-name: Plus One
+name: PLUS ONE
 label: PLU
 genres:
-  - other
+  - techno
+image: ./assets/images/PLUSONE.png
 ---
 
 # Plus One
 
 ![](./assets/images/PLUSONE.png)
 
-**Lorem ipsum dolor sit amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+He’s the founder of the capital’s first electronic music bar, Square, and the brainchild behind Square Productions. Savvis, AKA Plusone Is a serious player on the local scene, spinning his unique mix of minimal, house and techno to create elements of surprise throughout his sets.
 
-Duis aute irure dolor in *reprehenderit in voluptate* velit dolore eu fugiat nulla pariatur. Excepteur sint [occaecat cupidatat non proident](#/), sunt in culpa qui officia deserunt mollit anim id est laborum.
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TW4bo3Bevdo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -3,6 +3,7 @@ name: ARGY K
 label: ARG
 genres:
   - techno
+image: ./assets/images/ARGYK.png
 ---
 
 # ARGY K 
