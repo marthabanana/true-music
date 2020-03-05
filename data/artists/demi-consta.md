@@ -4,10 +4,10 @@ label: DEM
 genres:
   - house
   - techno
-image: ./assets/images/TM.png
+image: ./assets/images/TM2.png
 ---
 
 # Demi Consta
 
-![](./assets/images/TM.png)
+![](./assets/images/TM2.png)
 
