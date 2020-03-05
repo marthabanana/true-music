@@ -7,6 +7,7 @@ genres:
   - techno
   - post-punk
   - leftfield-house
+image: ./assets/images/TM2.png
 ---
 
 # Mr. Fox
