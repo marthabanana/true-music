@@ -1,5 +1,5 @@
 ---
-name: ina
+name: INA
 label: INA
 genres:
   - house
@@ -7,6 +7,7 @@ genres:
   - electro
   - break-beat
   - uk-garage
+image: ./assets/images/INA.png
 ---
 
 # ina

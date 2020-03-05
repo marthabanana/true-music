@@ -1,9 +1,10 @@
 ---
-name: BillyD
+name: BILLYD
 label: BIL
 genres:
   - house
   - techno
+image: ./assets/images/TM.png
 ---
 
 # BillyD
