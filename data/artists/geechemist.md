@@ -1,8 +1,9 @@
 ---
-name: Geechemist
+name: GEECHEMIST
 label: GEE
 genres:
   - other
+image: ./assets/images/ROMINA.png
 ---
 
 # Geechemist

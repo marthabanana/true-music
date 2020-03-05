@@ -1,9 +1,10 @@
 ---
-name: Michel Fialas
-label: MIC
+name: MICHEL FIALAS
+label: FIA
 genres:
   - house
   - techno
+image: ./assets/images/TM.png
 ---
 
 # Michel Fialas
