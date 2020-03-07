@@ -62,7 +62,7 @@ export default ({ genres, artists, }) => {
       const artists = getArtistsByGenres([genreKey])
       return {
         sets: [genreKey],
-        label: genreKey,
+        label: genres[genreKey].props.name,
         size: artists.length || 0.5,
         genre: genreKey,
         artists: artists,
