@@ -68,6 +68,9 @@ function artist({ pageArtist, data, }) {
         if (artistKey === artist && arr.length > 1) {
           m.next = arr[ (i == arr.length - 1) ? 0 : i + 1]
           m.previous = arr[ (i === 0) ? arr.length - 1 : i - 1 ]
+          if (m.next === m.previous) {
+            m.previous = null
+          }
         }
         return m
       }, {
