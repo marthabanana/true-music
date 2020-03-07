@@ -1,6 +1,6 @@
 ---
 name: MARKUS EDEN
-label: ME
+label: EDE
 genres:
   - house
   - disco
