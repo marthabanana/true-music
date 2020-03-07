@@ -1,3 +1,5 @@
+import navArrows from './assets/images/nav-prev-next.png'
+
 export default ({ id, html, props:{ name, theme }, lastModified, }, { artists }={}) => {
 
   const dummy = document.createElement('script')
@@ -6,10 +8,20 @@ export default ({ id, html, props:{ name, theme }, lastModified, }, { artists }=
 
   const preview = dummy.querySelectorAll('img')
 
-  console.log({ preview })
+  const backBtnStyle = `
+    background-image: url('${ navArrows }');
+    background-position: left center;
+    right: 0;
+  `
 
   return `
     <section id="genre-${id}" class="genre-details" data-genre="${id}">
+      <span class="paging-item paging-item--previous" style="display: block;margin: 0 auto 30px;width: 40px;">
+        <a href="#/" title="Back">
+          Back
+          <span class="paging-item--arrow" style="${backBtnStyle}">&larr;</span>
+        </a>
+      </span>
       <main>
         ${html}
       </main>

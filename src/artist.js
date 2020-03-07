@@ -49,6 +49,15 @@ export default ({ id, html, props: { name, genres } }, { params={}, data, next, 
             ` : ''
           }
         </ul>
+
+        <ul class="artist-details--paging">
+          <li class="artist-details--paging-item paging-item paging-item--previous">
+            <a href="#/${ genre }">
+              Back
+              <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
+            </a>
+          </li>
+        </ul>
       </footer>
     </section>
   `
