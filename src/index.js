@@ -8,7 +8,7 @@ import data from './data.json'
 import createRoutes from './routes'
 import createTheme from './theme'
 import createNavigation from './navigation'
-
+import './iframeHeight'
 
 const { navigation } = createNavigation('#navigation-genres')
 
