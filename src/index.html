@@ -1,13 +1,27 @@
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <base href="<%= htmlWebpackPlugin.options.baseUrl %>" />
+    <base href="<%=webpackConfig.output.publicPath%>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="copyright" content="2020 ABR">
+    <meta name="author" content="rudasn">
+    <meta name="source" content="github.com/afrobanana">
+    <meta http-equiv="cleartype" content="on">
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%=webpackConfig.output.publicPath%>">
+    <meta property="og:image" content="<%=webpackConfig.output.publicPath%>assets/images/shared.jpg">
+    <meta property="og:image:height" content="128">
+    <meta property="og:image:width" content="136">
+    <meta property="og:description" content="We're standing up for True Music">
+    <meta name="description" content="We're standing up for True Music">
   </head>
   <body>
     <header>
       <h1>
-        <a href="#/"><img height="150" src="assets/images/logo.png" alt="True Music Cyprus"><span>True Music Cyprus</span></a>
+        <a href="#/"><img height="120" src="<%=webpackConfig.output.publicPath%>assets/images/logo.png" alt="Ballantine's True Music Cyprus"><span>Ballantine's True Music Cyprus</span></a>
       </h1>
       <nav id="navigation-genres">
         <ul class="navigation">
