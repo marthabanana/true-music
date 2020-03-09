@@ -1,13 +1,6 @@
 import navArrows from './assets/images/nav-prev-next.png'
 
 export default ({ id, html, props:{ name, theme }, lastModified, }, { artists }={}) => {
-
-  const dummy = document.createElement('script')
-  dummy.type = 'text/template'
-  dummy.innerHTML = html
-
-  const preview = dummy.querySelectorAll('img')
-
   const backBtnStyle = `
     background-image: url('${ navArrows }');
     background-position: left center;

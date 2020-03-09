@@ -229,47 +229,11 @@ export default ({ genres, artists, }) => {
     }
   }
 
-  function handleMouseOver(d, i) {
-      // sort all the areas relative to the current item
-      // venn.sortAreas(div, d);
-
-      // Display a tooltip with the current size
-      var tooltipText = d.tooltip || (d.artists ? d.artists.length + " artists" :  null)
-
-      if (tooltipText) {
-        // tooltip.transition().duration(400).style("opacity", .9);
-        // tooltip.text(tooltipText);
-      }
-
-      // highlight the current path
-      // var selection = d3.select(this).transition("tooltip").duration(400);
-      // selection.select("path")
-      //     .style("fill-opacity", d.sets.length == 1 ? .4 : .1)
-      //     .style("stroke-opacity", 1);
-  }
-
-  function handleMouseMove() {
-      // tooltip.style("left", (d3.event.pageX + 20) + "px")
-      //        .style("top", (d3.event.pageY - 28) + "px");
-  }
-
-  function handleMouseOut(d, i) {
-      // tooltip.transition().duration(400).style("opacity", 0);
-      // var selection = d3.select(this).transition("tooltip").duration(400);
-      // selection.select("path")
-      //     .style("fill-opacity", d.sets.length == 1 ? .25 : .0)
-      //     .style("stroke-opacity", 0);
-  }
-
   let recentSets
 
   function addEvents(args) {
-    // div.selectAll("g")
     div.selectAll(".venn-circle")
       .on("click", handleAreaClick)
-      .on("mouseover", handleMouseOver)
-      .on("mousemove", handleMouseMove)
-      .on("mouseout", handleMouseOut);
 
     if (recentSets) {
       window.removeEventListener('resize', recentSets)
@@ -304,50 +268,10 @@ export default ({ genres, artists, }) => {
     genreText.classList.remove('active')
 
     const genreContainer = document.querySelector(`#venn [data-venn-sets="${genre}"]`)
+
     if (genre && genreContainer) {
-
-      // genreContainer.querySelector('path').style.stroke = genres[genre].props.theme
-
       genreContainer.classList.add('active')
-      // setTimeout(() => {
-
-        genreText.setAttribute('data-venn-text', genre)
-
-        // genreText.innerHTML = genres[genre].html
-        // genreText.innerHTML = `<h1>${genres[genre].props.name}</h1>`
-        // genreText.classList.add('active')
-
-
-        function adjust({ count=100, widthA=0, heightA=0, topA=0, leftA=0 }={}) {
-          count--
-          setTimeout(_ => {
-            const { width, height, top, left } = genreContainer.getBoundingClientRect()
-
-            console.warn('adjustment', count, {width, height, top, left},{widthA,heightA,topA,leftA})
-            if (count <= 0 || (widthA === width && heightA === height && topA === top && leftA === left)) {
-              // stop
-              console.warn('stop adjustment')
-              return
-            }
-            genreText.setAttribute('style', `
-              left: ${left + (width*0.12)}px;
-              top: ${top + (height * 0.25)}px;
-              width: ${ width * 0.75 }px;
-              max-height: ${ height * 0.65  }px;
-            `)
-
-            widthA = width
-            heightA = height
-            topA = top
-            leftA = left
-
-            adjust({count, widthA, heightA, topA, leftA })
-          }, 100)
-        }
-        // adjust()
-     }
-     else {
-
+      genreText.setAttribute('data-venn-text', genre)
      }
 
      console.timeEnd(`draw ${sets.length}`)
