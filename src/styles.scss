@@ -28,13 +28,12 @@ body {
   }
 
   &[data-route-exiting] {
-    text.label {
+    text {
       display: none;
     }
   }
 }
 header {
-
   h1 {
     position: fixed;
     z-index: 2;
@@ -124,7 +123,7 @@ footer#main-footer {
 }
 #page-venn {
   position: relative;
-  height: 70%;
+  height: 600px;
   display: none;
 }
 #venn {
@@ -145,8 +144,6 @@ footer#main-footer {
   margin: 0 auto 32px;
   padding: 0 32px;
   overflow: hidden;
-  // height: 0;
-  // transition: all 500ms;
 }
 
 #home-intro--long {
@@ -156,19 +153,13 @@ footer#main-footer {
 
 
 [data-route-path="/"] #page-home {
-  // height: 400px;
   margin: 32px auto;
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  [data-route-path="/"] #page-home {
-    // height: 400px;
-    // margin: 32px auto;
-  }
-
   body:not([data-route-route="genre"]) #page-venn {
-    height: 100%;
+    height: 800px;
   }
   #home-intro--long {
     display: block;
