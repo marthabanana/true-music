@@ -41,6 +41,7 @@ function genre({ pageGenre, renderGenre, venn, data, }) {
     exit(current, next) {
       venn.style.display = 'none'
       pageGenre.style.display = 'none'
+      pageGenre.innerHTML = ''
 
       if (!next.params.artist) {
         Array.from(document.querySelectorAll('#venn [data-venn-sets*="::"] text.label')).forEach(label => {
@@ -84,6 +85,7 @@ function artist({ pageArtist, data, }) {
 
     exit() {
       pageArtist.style.display = 'none'
+      pageArtist.innerHTML = ''
     }
   }
 }
