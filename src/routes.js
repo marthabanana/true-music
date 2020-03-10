@@ -2,6 +2,7 @@ import createDrawing from './draw'
 import createArtist from './artist'
 import createGenre from './genre'
 import createRouter from './router'
+import { propagateFrameHeight } from './iframeHeight'
 
 function home({ renderGenres, venn, homeEl }) {
   return {
@@ -9,6 +10,7 @@ function home({ renderGenres, venn, homeEl }) {
       venn.style.display = 'block'
       homeEl.style.display = 'block'
       renderGenres()
+      propagateFrameHeight()
     },
     exit() {
       venn.style.display = 'none'
@@ -34,7 +36,10 @@ function genre({ pageGenre, renderGenre, venn, data, }) {
       pageGenre.style.display = 'block'
 
       pageGenre.innerHTML = createGenre(data.genres[genre], { artists, })
-      requestAnimationFrame(() => renderGenre({ genre, container: venn  }))
+      requestAnimationFrame(() => {
+        renderGenre({ genre, container: venn  })
+        propagateFrameHeight()
+      })
 
     },
 
@@ -80,7 +85,7 @@ function artist({ pageArtist, data, }) {
       })
       pageArtist.innerHTML = createArtist(data.artists[artist], { params, data, next, previous })
       pageArtist.style.display = 'block'
-      document.body.scrollTop = 0
+      propagateFrameHeight()
     },
 
     exit() {

@@ -49,7 +49,7 @@ function createRouter({ ctx } = {}) {
       document.body.removeAttribute(`data-route-exiting`)
       document.body.removeAttribute(`data-route-exiting-route`)
 
-      window.scrollTo(0, 0)
+      requestAnimationFrame(() => window.scrollTo(0, 0))
 
       currentRoute = {
         path: route,
