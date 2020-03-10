@@ -1,5 +1,5 @@
 ---
-name: Gustav
+name: GUSTAV
 label: GUS
 genres:
   - house
