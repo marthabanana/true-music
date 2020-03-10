@@ -8,7 +8,7 @@
 <iframe id="BTMCFrame" src="https://www2.afrobananarepublic.com/true-music" onload="resizeBTMCFrame(this)"></iframe>
 ```
 
-2. Create the `resizeBTMCFrame` function that posts a message to the iframe to retrieve its height.
+2. Create the `resizeBTMCFrame` function that posts a message to the iframe to request its height.
 
 ```js
 function resizeBTMCFrame(frame) {
