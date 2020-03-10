@@ -251,8 +251,8 @@ export default ({ genres, artists, }) => {
     var vennEl = document.getElementById('venn')
 
     chart = venn.VennDiagram()
-                     .width(vennEl.offsetWidth)
-                     .height(vennEl.offsetHeight);
+                     .width(vennEl.clientWidth)
+                     .height(vennEl.clientHeight);
 
     div = d3.select("#venn")
 
