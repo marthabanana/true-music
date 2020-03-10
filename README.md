@@ -26,4 +26,4 @@ window.addEventListener('message', function (event) {
 })
 ```
 
-For a reference implementation see [./test/index.html].
+For a reference implementation see [./test/index.html](this page).
