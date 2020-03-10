@@ -11,6 +11,7 @@ image: ./assets/images/COTSIOS.png
 
 ![](./assets/images/COTSIOS.png)
 
+His name has become synonymous with addictive disco love songs and world music beats that keep party lovers on their toes late into the night. Cotsios o Pikatillis, the founder of Afrobanana Festival – never disappoints, with his unique, exclusively vinyl sets.
 
 ---
 
