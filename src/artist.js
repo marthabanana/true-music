@@ -31,26 +31,26 @@ export default ({ id, html, props: { name, genres } }, { params={}, data:{ artis
           }
         </ol>
         <ul class="artist-details--paging">
+          <li class="artist-details--paging-item paging-item paging-item--previous">
           ${
-            previousArtist ? `
-              <li class="artist-details--paging-item paging-item paging-item--previous">
-                <a href="#/${ genre }/${ previous }">
-                  ${ previousArtist.props.name }
-                  <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
-                </a>
-              </li>
-            ` : ''
+            previousArtist
+            ? `<a href="#/${ genre }/${ previous }">
+              ${ previousArtist.props.name }
+              <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
+            </a>`
+            : ''
           }
-          ${
-            nextArtist ? `
-              <li class="artist-details--paging-item paging-item paging-item--next">
-                <a href="#/${ genre }/${ next }">
-                  <span class="paging-item--arrow" style="${nextArtistStyle}">&rarr;</span>
-                  ${ nextArtist.props.name }
-                </a>
-              </li>
-            ` : ''
-          }
+          </li>
+            <li class="artist-details--paging-item paging-item paging-item--next">
+            ${
+              nextArtist
+              ? `<a href="#/${ genre }/${ next }">
+                <span class="paging-item--arrow" style="${nextArtistStyle}">&rarr;</span>
+                ${ nextArtist.props.name }
+              </a>`
+              : ''
+            }
+          </li>
         </ul>
 
         <ul class="artist-details--paging">

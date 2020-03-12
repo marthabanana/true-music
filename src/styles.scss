@@ -215,6 +215,41 @@ text.label {
   }
 }
 
+.paging-item {
+  display: inline-block;
+  margin: 0 16px 0;
+  padding: 0;
+  position: relative;
+  text-transform: uppercase;
+  a {
+    display: block;
+    padding: 25px 45px ;
+  }
+  .paging-item--arrow {
+    background-repeat: no-repeat;
+    display: block;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-indent: -100em;
+    top: 0;
+    width: 50px;
+  }
+  &.paging-item--next {
+    text-align: left;
+    .paging-item--arrow {
+      float: left;
+    }
+  }
+  &.paging-item--previous {
+    text-align: right;
+    .paging-item--arrow {
+      float: right;
+    }
+  }
+}
+
 .genre-details,
 .artist-details {
   padding: 20px;
@@ -259,13 +294,13 @@ text.label {
   padding: 0;
   text-align: center;
 }
-.artist-details--paging-item,
-.artist-details--genres-item {
-  display: inline-block;
-  margin: 0 16px 0;
-  text-transform: uppercase;
-}
 
+.artist-details--genres-item {
+  @extend .paging-item;
+  a {
+    padding: 0.3em 0.6em;
+  }
+}
 .artist-details--genres {
   margin: 1em auto;
   font-family: Interstate Regular;
@@ -285,6 +320,12 @@ text.label {
 }
 .artist-details--paging {
   margin: 3em auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  + .artist-details--paging {
+    margin-top: -1.5em;
+  }
 }
 .artist-details--paging-item {
   a {
@@ -295,37 +336,6 @@ text.label {
     }
   }
 }
-
-.paging-item {
-  position: relative;
-  a {
-    display: block;
-    padding: 25px 45px ;
-  }
-  .paging-item--arrow {
-    display: block;
-    text-indent: -100em;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 80px;
-
-    position: absolute;
-
-    top: 0;
-  }
-  &.paging-item--next {
-    .paging-item--arrow {
-      float: left;
-    }
-  }
-  &.paging-item--previous {
-    .paging-item--arrow {
-      float: right;
-    }
-  }
-}
-.paging-item--previous {}
 
 .genre-details {
   footer {
