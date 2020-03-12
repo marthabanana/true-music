@@ -55,6 +55,9 @@ const config = {
         from: 'src/assets/images',
         to: 'assets/images'
       },
+      {
+        from: 'src/favicon.ico',
+      }
     ]),
   ],
   module: {
