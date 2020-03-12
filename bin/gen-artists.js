@@ -55,7 +55,7 @@ function stringify(str) {
 artists.forEach(
  ([ long_name, ...genres]) => {
    const fileName = stringify(long_name)
-   const filePath = path.join(__dirname, '../', 'data', 'artists', `${fileName}.md`)
+   const filePath = path.join(__dirname, '../', 'data', 'generated', 'artists', `${fileName}.md`)
    fs.writeFileSync(filePath, `
 ---
 name: ${ long_name }
