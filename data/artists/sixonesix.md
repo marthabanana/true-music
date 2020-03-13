@@ -21,4 +21,4 @@ Constantinos – a.k.a Sixonesix – is a DJ born in Nicosia, Cyprus. Resident a
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_P0M0cmmoiU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/_P0M0cmmoiU)

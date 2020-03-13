@@ -18,4 +18,4 @@ Vassilis Palamas first played for an audience on a pirate radio station in Athen
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_5NRqsS3jaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/_5NRqsS3jaw)

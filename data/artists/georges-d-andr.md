@@ -20,4 +20,4 @@ Unconstrained by the boundaries of traditional music genres, Sousami resident DJ
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_RCxn_-7Nvs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/_RCxn_-7Nvs)

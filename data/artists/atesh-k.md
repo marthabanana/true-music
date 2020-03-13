@@ -20,4 +20,4 @@ Mixing since 1995, Atesh K is a DJ and producer, first releasing his own techno 
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G7LO-iDvjRU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/G7LO-iDvjRU)

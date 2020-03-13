@@ -19,4 +19,4 @@ After a heady debut on the electronic music scene back in 1989, followed by a tw
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/res0m9AIqf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/res0m9AIqf4)

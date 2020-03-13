@@ -19,8 +19,8 @@ His name has become synonymous with addictive disco love songs and world music b
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NO8U7o9C96c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/NO8U7o9C96c)
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/auLzG41N2jE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/auLzG41N2jE)
