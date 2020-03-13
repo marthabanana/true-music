@@ -68,8 +68,14 @@
       <div id="page-artist"></div>
     </main>
     <footer id="main-footer">
-      <p>Copyright &copy; <%= (new Date()).getUTCFullYear() %></p>
-      <p><small><%= process.env.APP_VERSION %></small></p>
+      <div id="copyright">
+        <p>Copyright &copy; <%= (new Date()).getUTCFullYear() %></p>
+        <p><small><%= process.env.APP_VERSION %></small></p>
+      </div>
+      <div id="social-links">
+        <a href="https://www.facebook.com/BallantinesCyprus" target="_blank"><img src="<%=webpackConfig.output.publicPath%>assets/images/fb.jpg" alt="fb"/></a>
+        <a href="https://www.instagram.com/ballantines_cyp/" target="_blank"><img src="<%=webpackConfig.output.publicPath%>assets/images/ig.jpg" alt="ig"/></a>
+      </div>
     </footer>
   </body>
 </html>

@@ -57,15 +57,27 @@ header {
 img {
  max-width: 100%;
 }
-footer#main-footer {
+#copyright {
   font-family: Arial, sans-serif;
   position: fixed;
   bottom: 0;
+  right: 0;
   font-size: 11px;
   text-align: center;
   color: #eee;
+  padding: 10px;
   p {
     margin: 2px 0;
+  }
+}
+#social-links {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 40px;
+  a {
+    display: block;
   }
 }
 #navigation-genres {
