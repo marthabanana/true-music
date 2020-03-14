@@ -19,14 +19,12 @@ function home({ renderGenres, venn, homeEl }) {
   }
 }
 
-function genre({ pageGenre, renderGenre, venn, data, }) {
+function genre({ pageGenre, renderGenre, venn, data, getArtistsByGenres, }) {
   return {
     enter({ params }) {
       const { genre } = params
 
-      const artists = Object.keys(data.artists).filter(
-        artist => data.artists[artist].props.genres.indexOf(genre) !== -1
-      ).map(
+      const artists = getArtistsByGenres([ genre ]).map(
         artist => data.artists[artist]
       ).sort(
         ({ lastModified: a }, { lastModified: b}) => a > b ? -1 : 0
@@ -40,7 +38,6 @@ function genre({ pageGenre, renderGenre, venn, data, }) {
         renderGenre({ genre, container: venn  })
         propagateFrameHeight()
       })
-
     },
 
     exit(current, next) {
@@ -104,9 +101,9 @@ export default ({ data, }) => {
   const pageArtist = document.getElementById('page-artist')
   const pageGenre = document.getElementById('page-genre')
 
-  const { renderGenres, renderGenre } = createDrawing(data)
+  const { renderGenres, renderGenre, getArtistsByGenres } = createDrawing(data)
 
   router('/', home({ renderGenres, venn, homeEl }))
-  router('/:genre', genre({ pageGenre, data, venn, renderGenre }))
+  router('/:genre', genre({ pageGenre, data, venn, renderGenre, getArtistsByGenres }))
   router('/:genre/:artist', artist({ pageArtist, data, }))
 }

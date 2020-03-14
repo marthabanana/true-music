@@ -10,15 +10,16 @@ export default ({ genres, artists, }) => {
 
   var chart, div
 
-  function getArtistsByGenres(genreKeys, excludeGenre) {
+  function getArtistsByGenres(genreKeys, excludeGenre='') {
+    genreKeys = genreKeys.map(g => g.toLowerCase())
+    excludeGenre = excludeGenre.toLowerCase()
+
     return Object.keys(artists).filter(function(artistKey) {
+      const artistGenres = artists[artistKey].props.genres.map(g => g.toLowerCase())
       return genreKeys.every(function(genreKey) {
-        return artists[artistKey].props.genres.indexOf(genreKey) !== -1 &&
-          excludeGenre !== genreKey
+        return (artistGenres.indexOf(genreKey) !== -1
+                && excludeGenre !== genreKey)
       })
-    }).map(function(artistKey) {
-      // return `DJ_${artistKey}`
-      return artistKey
     })
   }
 
@@ -26,13 +27,13 @@ export default ({ genres, artists, }) => {
 
     return artists[artistKey.replace(/^DJ_/, '')]
   }
-  function getArtistName(artistKey) {
-
-    return getArtist(artistKey).props.short_display_name || artistKey.replace(/_/g, ' ')
-  }
 
   function getGenreIntersections(betweenGenreKeys=Object.keys(genres)) {
-    return Object.keys(genres).map(function(genreKey, i, genreKeys) {
+    betweenGenreKeys = betweenGenreKeys.map(g=>g.toLowerCase())
+
+    const genreKeys = Object.keys(genres).map(g=>g.toLowerCase())
+
+    return genreKeys.map(function(genreKey, i) {
       return genreKeys.slice(i + 1).map(function(nextGenreKey) {
 
         if (betweenGenreKeys.indexOf(genreKey) === -1 &&
@@ -166,55 +167,6 @@ export default ({ genres, artists, }) => {
     console.warn({ genre, newSets, genreArtists, additionalGenreSets, genreInteresections })
 
     return draw({ sets: newSets, genre: genre })
-  }
-
-
-  function renderArtist(datum) {
-    const artist = getArtist(datum.artist)
-    // console.warn(artist.props.genres, getGenreIntersections(artist.props.genres))
-    return [
-      {
-        sets: [datum.artist],
-        size: 10,
-        label: getArtistName(datum.artist),
-      }
-    ].concat(
-      artist.props.genres.map(function(genreKey, i, arr) {
-        const excludeGenre = i ? arr[i-1] : null
-        const artists = getArtistsByGenres([genreKey], excludeGenre).filter(function(artistKey) {
-          return artistKey !== datum.artist
-        })//.slice(0,5)
-        return [
-          {
-            genre: genreKey,
-            sets: [ genreKey ],
-            size: 0.5,
-            label: genreKey,
-          },
-          {
-            sets: [datum.artist, genreKey],
-            size: 0.1,
-          }
-        ].concat(
-          artists.map(function(artistKey, i, arr) {
-            return [
-              {
-                sets: [ artistKey, ],
-                artist: artistKey,
-                size: 0.1 * (0.5 / arr.length),
-                label: ' '
-                // label: getArtistName(artistKey)
-              },
-              {
-                sets: [ artistKey, genreKey ],
-                size: 0.1 * (0.1 / arr.length),
-                // weight: 0
-              }
-            ]
-          }).flat()
-        )
-      }).flat()
-    )
   }
 
   function handleAreaClick(datum) {
