@@ -122,6 +122,8 @@ img {
     text-transform: uppercase;
     box-sizing: border-box;
     display: block;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .navigation-item {
