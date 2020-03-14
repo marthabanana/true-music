@@ -1,6 +1,6 @@
 ---
 name: World
-theme: "blue"
+theme: "#93548e"
 ---
 
 # World
