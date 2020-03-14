@@ -54,20 +54,13 @@ function genre({ pageGenre, renderGenre, venn, data, getArtistsByGenres, }) {
   }
 }
 
-function artist({ pageArtist, data, }) {
+function artist({ pageArtist, data, getArtistsByGenres }) {
   const { artists, genres } = data
-
-  const artistsByGenre = Object.keys(genres).reduce((m, genreKey) => {
-    m[genreKey] = Object.keys(artists).filter(
-      artistKey => artists[artistKey].props.genres.indexOf(genreKey) !== -1
-    )
-    return m
-  }, {})
 
   return {
     enter({ params }) {
       const { artist, genre } = params
-      const { next, previous } = artistsByGenre[genre].reduce((m, artistKey, i, arr) => {
+      const { next, previous } =  getArtistsByGenres([ genre ]).reduce((m, artistKey, i, arr) => {
         if (artistKey === artist && arr.length > 1) {
           m.next = arr[ (i == arr.length - 1) ? 0 : i + 1]
           m.previous = arr[ (i === 0) ? arr.length - 1 : i - 1 ]
@@ -105,5 +98,5 @@ export default ({ data, }) => {
 
   router('/', home({ renderGenres, venn, homeEl }))
   router('/:genre', genre({ pageGenre, data, venn, renderGenre, getArtistsByGenres }))
-  router('/:genre/:artist', artist({ pageArtist, data, }))
+  router('/:genre/:artist', artist({ pageArtist, data, getArtistsByGenres }))
 }
