@@ -5,7 +5,7 @@
 1. Add the iframe in your page.
 
 ```html
-<iframe id="BTMCFrame" src="https://www2.afrobananarepublic.com/true-music" onload="resizeBTMCFrame(this)"></iframe>
+<iframe id="BTMCFrame" src="https://truemusiccyprus.com/" onload="resizeBTMCFrame(this)"></iframe>
 ```
 
 2. Create the `resizeBTMCFrame` function that posts a message to the iframe to request its height.
