@@ -57,6 +57,9 @@ const config = {
       },
       {
         from: 'src/favicon.ico',
+      },
+      {
+        from: 'src/CNAME',
       }
     ]),
   ],
