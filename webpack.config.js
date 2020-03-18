@@ -8,7 +8,7 @@ const pkg = require('./package.json')
 const data = require('./src/data.json')
 
 const IS_PROD = process.env.NODE_ENV === 'production'
-const BASE_PATH = IS_PROD ? 'https://www2.afrobananarepublic.com/true-music/' : '/'
+const BASE_PATH = IS_PROD ? 'http://truemusiccyprus.com/' : '/'
 
 const babelProdPlugins = [ 'transform-remove-console' ]
 
