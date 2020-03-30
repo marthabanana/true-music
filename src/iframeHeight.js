@@ -1,15 +1,37 @@
-function getMaxHeight() {
-  const { scrollHeight } = document.querySelector('#main')
-  return scrollHeight + 200
+import postMessage from './postMessage'
+
+const main = document.querySelector('#main')
+
+function getPageHeight() {
+  const { scrollHeight } = main
+  const { top } = main.getBoundingClientRect()
+  return scrollHeight + top + 50
 }
 
-export function propagateFrameHeight(context=window.top, previous) {
+let previous = null
+let frameHeightTimeout = null
+let lastCall = null
+export function propagateFrameHeight(context=window.top) {
+
   try {
-    const FrameHeight = getMaxHeight()
-    if (!previous || FrameHeight !== previous) {
-      context.postMessage({ FrameHeight }, '*')
-      setTimeout(() => propagateFrameHeight(context, FrameHeight), 200)
+    const pageHeight = Math.floor(getPageHeight())
+
+    if (!previous || pageHeight !== previous) {
+      postMessage(context, { pageHeight })
+
+      if (frameHeightTimeout) {
+        clearTimeout(frameHeightTimeout)
+      }
+
+      frameHeightTimeout = setTimeout(
+        () => propagateFrameHeight(context)
+        , 200
+      )
     }
+
+    previous = pageHeight
+    lastCall = Date.now()
+
     return true
   } catch(e) {
     console.error('propagateFrameHeight', e)
@@ -17,7 +39,7 @@ export function propagateFrameHeight(context=window.top, previous) {
 }
 
 window.addEventListener('message', function (event) {
-  if (event.data === 'FrameHeight') {
+  if (event.data === 'pageHeight') {
     propagateFrameHeight(event.source)
   }
 });
@@ -25,3 +47,12 @@ window.addEventListener('message', function (event) {
 window.addEventListener('load', e => {
   propagateFrameHeight()
 })
+
+window.addEventListener('resize', e => {
+  propagateFrameHeight()
+})
+
+if (window !== window.top) {
+  document.body.classList.add('in-frame')
+}
+
