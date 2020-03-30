@@ -186,14 +186,6 @@ export default ({ genres, artists, }) => {
   function addEvents(args) {
     div.selectAll(".venn-circle")
       .on("click", handleAreaClick)
-
-    if (recentSets) {
-      window.removeEventListener('resize', recentSets)
-    }
-
-    recentSets = () => draw(args)
-
-    window.addEventListener('resize', recentSets)
   }
 
   function draw({ sets, genre }) {
