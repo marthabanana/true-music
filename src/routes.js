@@ -3,6 +3,12 @@ import createArtist from './artist'
 import createGenre from './genre'
 import createRouter from './router'
 import { propagateFrameHeight } from './iframeHeight'
+import postMessage from './postMessage'
+
+function onRouteChange({ path }) {
+  postMessage(window.top, { pageNavigate: path })
+  propagateFrameHeight()
+}
 
 function home({ renderGenres, venn, homeEl }) {
   return {
@@ -10,7 +16,6 @@ function home({ renderGenres, venn, homeEl }) {
       venn.style.display = 'block'
       homeEl.style.display = 'block'
       renderGenres()
-      propagateFrameHeight()
     },
     exit() {
       venn.style.display = 'none'
@@ -36,7 +41,6 @@ function genre({ pageGenre, renderGenre, venn, data, getArtistsByGenres, }) {
       pageGenre.innerHTML = createGenre(data.genres[genre], { artists, })
       requestAnimationFrame(() => {
         renderGenre({ genre, container: venn  })
-        propagateFrameHeight()
       })
     },
 
@@ -75,7 +79,6 @@ function artist({ pageArtist, data, getArtistsByGenres }) {
       })
       pageArtist.innerHTML = createArtist(data.artists[artist], { params, data, next, previous })
       pageArtist.style.display = 'block'
-      propagateFrameHeight()
     },
 
     exit() {
@@ -96,7 +99,7 @@ export default ({ data, }) => {
 
   const { renderGenres, renderGenre, getArtistsByGenres } = createDrawing(data)
 
-  router('/', home({ renderGenres, venn, homeEl }))
-  router('/:genre', genre({ pageGenre, data, venn, renderGenre, getArtistsByGenres }))
-  router('/:genre/:artist', artist({ pageArtist, data, getArtistsByGenres }))
+  router('/', home({ renderGenres, venn, homeEl }), onRouteChange)
+  router('/:genre', genre({ pageGenre, data, venn, renderGenre, getArtistsByGenres }), onRouteChange)
+  router('/:genre/:artist', artist({ pageArtist, data, getArtistsByGenres }), onRouteChange)
 }
