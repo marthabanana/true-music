@@ -1,6 +1,6 @@
 {
   "name": "true-music",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Ballantine's True Music Cyprus",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/afrobanana/true-music#readme",
   "dependencies": {
-    "@centerforopenscience/markdown-it-video": "^1.0.0",
     "d3": "^5.12.0",
     "path-match": "^1.2.4",
     "path-to-regexp": "^3.1.0",
@@ -30,6 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@centerforopenscience/markdown-it-video": "^1.0.0",
     "autoprefixer": "^9.6.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-remove-console": "^6.9.4",
