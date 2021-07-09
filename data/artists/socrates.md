@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
-name: Socrates
-=======
 name: SOCRATES
->>>>>>> 0cca184e163dce1cd0676ed383b4c47c496a6299
 label: SOC
 genres:
   - house

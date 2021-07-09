@@ -1,6 +1,6 @@
 ---
 name: ELECTRO
-theme: "green"
+theme: "#057d05"
 ---
 
 # Electro

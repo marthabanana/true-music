@@ -18,4 +18,4 @@ Alexis Phase is a Berlin-based, Cypriot artist who stands out for his direct, ra
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WLuwRBI2xMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@[youtube](https://www.youtube.com/embed/WLuwRBI2xMQ)

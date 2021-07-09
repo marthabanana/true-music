@@ -2,11 +2,13 @@
 
 const fs = require('fs')
 const path = require('path')
+
 const yamlFront = require('yaml-front-matter')
+const chokidar = require('chokidar')
 const md = require('markdown-it')({
   html: true,
-})
-const chokidar = require('chokidar')
+}).use(require('@centerforopenscience/markdown-it-video'))
+
 
 const dataPath = path.join(__dirname, '../', 'data')
 

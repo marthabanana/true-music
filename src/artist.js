@@ -1,9 +1,9 @@
 import navArrows from './assets/images/nav-prev-next.png'
 
-export default ({ id, html, props: { name, genres } }, { params={}, data, next, previous }) => {
+export default ({ id, html, props: { name, genres } }, { params={}, data:{ artists, genres:allGenres }, next, previous }) => {
   const { genre='' } = params
-  const nextArtist = next && data.artists[next]
-  const previousArtist = previous && data.artists[previous]
+  const nextArtist = next && artists[next]
+  const previousArtist = previous && artists[previous]
   const nextArtistStyle = `
     background-image: url('${ navArrows }');
     background-position: right center;
@@ -14,6 +14,9 @@ export default ({ id, html, props: { name, genres } }, { params={}, data, next, 
     background-position: left center;
     right: 0;
   `
+
+  genres = Object.keys(allGenres).filter(g => genres.indexOf(g) !== -1)
+
   return `
     <section id="artist-${id}" class="artist-details" data-genre-artist="${ genre }">
       <main>
@@ -28,26 +31,35 @@ export default ({ id, html, props: { name, genres } }, { params={}, data, next, 
           }
         </ol>
         <ul class="artist-details--paging">
+          <li class="artist-details--paging-item paging-item paging-item--previous">
           ${
-            previousArtist ? `
-              <li class="artist-details--paging-item paging-item paging-item--previous">
-                <a href="#/${ genre }/${ previous }">
-                  ${ previousArtist.props.name }
-                  <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
-                </a>
-              </li>
-            ` : ''
+            previousArtist
+            ? `<a href="#/${ genre }/${ previous }">
+              ${ previousArtist.props.name }
+              <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
+            </a>`
+            : ''
           }
-          ${
-            nextArtist ? `
-              <li class="artist-details--paging-item paging-item paging-item--next">
-                <a href="#/${ genre }/${ next }">
-                  <span class="paging-item--arrow" style="${nextArtistStyle}">&rarr;</span>
-                  ${ nextArtist.props.name }
-                </a>
-              </li>
-            ` : ''
-          }
+          </li>
+            <li class="artist-details--paging-item paging-item paging-item--next">
+            ${
+              nextArtist
+              ? `<a href="#/${ genre }/${ next }">
+                <span class="paging-item--arrow" style="${nextArtistStyle}">&rarr;</span>
+                ${ nextArtist.props.name }
+              </a>`
+              : ''
+            }
+          </li>
+        </ul>
+
+        <ul class="artist-details--paging">
+          <li class="artist-details--paging-item paging-item paging-item--previous">
+            <a href="#/${ genre }">
+              Back
+              <span class="paging-item--arrow" style="${previousArtistStyle}">&larr;</span>
+            </a>
+          </li>
         </ul>
       </footer>
     </section>

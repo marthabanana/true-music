@@ -2,6 +2,13 @@ import createDrawing from './draw'
 import createArtist from './artist'
 import createGenre from './genre'
 import createRouter from './router'
+import { propagateFrameHeight } from './iframeHeight'
+import postMessage from './postMessage'
+
+function onRouteChange({ path }) {
+  postMessage(window.top, { pageNavigate: path })
+  propagateFrameHeight()
+}
 
 function home({ renderGenres, venn, homeEl }) {
   return {
@@ -17,14 +24,12 @@ function home({ renderGenres, venn, homeEl }) {
   }
 }
 
-function genre({ pageGenre, renderGenre, venn, data, }) {
+function genre({ pageGenre, renderGenre, venn, data, getArtistsByGenres, }) {
   return {
     enter({ params }) {
       const { genre } = params
 
-      const artists = Object.keys(data.artists).filter(
-        artist => data.artists[artist].props.genres.indexOf(genre) !== -1
-      ).map(
+      const artists = getArtistsByGenres([ genre ]).map(
         artist => data.artists[artist]
       ).sort(
         ({ lastModified: a }, { lastModified: b}) => a > b ? -1 : 0
@@ -34,13 +39,15 @@ function genre({ pageGenre, renderGenre, venn, data, }) {
       pageGenre.style.display = 'block'
 
       pageGenre.innerHTML = createGenre(data.genres[genre], { artists, })
-      requestAnimationFrame(() => renderGenre({ genre, container: venn  }))
-
+      requestAnimationFrame(() => {
+        renderGenre({ genre, container: venn  })
+      })
     },
 
     exit(current, next) {
       venn.style.display = 'none'
       pageGenre.style.display = 'none'
+      pageGenre.innerHTML = ''
 
       if (!next.params.artist) {
         Array.from(document.querySelectorAll('#venn [data-venn-sets*="::"] text.label')).forEach(label => {
@@ -51,23 +58,19 @@ function genre({ pageGenre, renderGenre, venn, data, }) {
   }
 }
 
-function artist({ pageArtist, data, }) {
+function artist({ pageArtist, data, getArtistsByGenres }) {
   const { artists, genres } = data
-
-  const artistsByGenre = Object.keys(genres).reduce((m, genreKey) => {
-    m[genreKey] = Object.keys(artists).filter(
-      artistKey => artists[artistKey].props.genres.indexOf(genreKey) !== -1
-    )
-    return m
-  }, {})
 
   return {
     enter({ params }) {
       const { artist, genre } = params
-      const { next, previous } = artistsByGenre[genre].reduce((m, artistKey, i, arr) => {
+      const { next, previous } =  getArtistsByGenres([ genre ]).reduce((m, artistKey, i, arr) => {
         if (artistKey === artist && arr.length > 1) {
           m.next = arr[ (i == arr.length - 1) ? 0 : i + 1]
           m.previous = arr[ (i === 0) ? arr.length - 1 : i - 1 ]
+          if (m.next === m.previous) {
+            m.previous = null
+          }
         }
         return m
       }, {
@@ -76,11 +79,11 @@ function artist({ pageArtist, data, }) {
       })
       pageArtist.innerHTML = createArtist(data.artists[artist], { params, data, next, previous })
       pageArtist.style.display = 'block'
-      document.body.scrollTop = 0
     },
 
     exit() {
       pageArtist.style.display = 'none'
+      pageArtist.innerHTML = ''
     }
   }
 }
@@ -94,9 +97,9 @@ export default ({ data, }) => {
   const pageArtist = document.getElementById('page-artist')
   const pageGenre = document.getElementById('page-genre')
 
-  const { renderGenres, renderGenre } = createDrawing(data)
+  const { renderGenres, renderGenre, getArtistsByGenres } = createDrawing(data)
 
-  router('/', home({ renderGenres, venn, homeEl }))
-  router('/:genre', genre({ pageGenre, data, venn, renderGenre }))
-  router('/:genre/:artist', artist({ pageArtist, data, }))
+  router('/', home({ renderGenres, venn, homeEl }), onRouteChange)
+  router('/:genre', genre({ pageGenre, data, venn, renderGenre, getArtistsByGenres }), onRouteChange)
+  router('/:genre/:artist', artist({ pageArtist, data, getArtistsByGenres }), onRouteChange)
 }

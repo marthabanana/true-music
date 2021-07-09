@@ -1,13 +1,28 @@
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <base href="<%= htmlWebpackPlugin.options.baseUrl %>" />
+    <base href="<%=webpackConfig.output.publicPath%>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="copyright" content="2020 ABR">
+    <meta name="author" content="rudasn">
+    <meta name="source" content="github.com/afrobanana">
+    <link rel="icon" href="<%=webpackConfig.output.publicPath%>favicon.ico">
+    <meta http-equiv="cleartype" content="on">
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%=webpackConfig.output.publicPath%>">
+    <meta property="og:image" content="<%=webpackConfig.output.publicPath%>assets/images/shared.jpg">
+    <meta property="og:image:height" content="128">
+    <meta property="og:image:width" content="136">
+    <meta property="og:description" content="We're standing up for True Music">
+    <meta name="description" content="We're standing up for True Music">
   </head>
   <body>
     <header>
       <h1>
-        <a href="#/"><img height="150" src="assets/images/logo.png" alt="True Music Cyprus"><span>True Music Cyprus</span></a>
+        <a href="#/"><img height="120" src="<%=webpackConfig.output.publicPath%>assets/images/logo.png" alt="Ballantine's True Music Cyprus"><span>Ballantine's True Music Cyprus</span></a>
       </h1>
       <nav id="navigation-genres">
         <ul class="navigation">
@@ -53,8 +68,39 @@
       <div id="page-artist"></div>
     </main>
     <footer id="main-footer">
-      <p>Copyright &copy; <%= (new Date()).getUTCFullYear() %></p>
-      <p><small><%= process.env.APP_VERSION %></small></p>
+      <div id="copyright">
+        <p>Copyright &copy; <%= (new Date()).getUTCFullYear() %></p>
+        <p><small><%= process.env.APP_VERSION %></small></p>
+      </div>
+      <div id="social-links">
+        <a href="https://www.facebook.com/BallantinesCyprus" target="_blank"><img src="<%=webpackConfig.output.publicPath%>assets/images/fb.jpg" alt="fb"/></a>
+        <a href="https://www.instagram.com/ballantines_cyp/" target="_blank"><img src="<%=webpackConfig.output.publicPath%>assets/images/ig.jpg" alt="ig"/></a>
+      </div>
     </footer>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162532452-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-162532452-1');
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '247486566535537');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=247486566535537&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
   </body>
 </html>

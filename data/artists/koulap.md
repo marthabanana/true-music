@@ -18,4 +18,4 @@ With a little quirk and mystery, Nikoulla P. Katsikoronou is a freewheeling, loo
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ICFXjH5elzQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/ICFXjH5elzQ)

@@ -1,6 +1,6 @@
 ---
 name: UK Garage
-theme: "blue"
+theme: "#5858a6"
 ---
 
 # UK Garage

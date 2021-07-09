@@ -21,4 +21,4 @@ An intriguingly unique character, Milton – also known as Eugene Skull – is w
 
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3WYfGuVwmJ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ @[youtube](https://www.youtube.com/embed/3WYfGuVwmJ8)

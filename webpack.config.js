@@ -7,12 +7,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const pkg = require('./package.json')
 const data = require('./src/data.json')
 
+const IS_PROD = process.env.NODE_ENV === 'production'
+const BASE_PATH = IS_PROD ? 'https://truemusiccyprus.com/' : '/'
+
+const babelProdPlugins = [ 'transform-remove-console' ]
+
 const globals = new webpack.DefinePlugin({
   'process.env.APP_VERSION': JSON.stringify(pkg.version),
+  'process.env.BASE_PATH': JSON.stringify(BASE_PATH),
 })
 
 const config = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: IS_PROD ? 'production' : 'development',
   target: 'web',
   entry: {
     polyfill: 'babel-polyfill',
@@ -20,7 +26,7 @@ const config = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: process.env.NODE_ENV === 'production' ? '/true-music/' : '/',
+    publicPath: BASE_PATH,
     filename: '[name].js'
   },
   devServer: {
@@ -33,7 +39,7 @@ const config = {
   plugins: [
     globals,
     new HtmlWebpackPlugin({
-      baseUrl: process.env.NODE_ENV === 'production' ? '/true-music/' : '/',
+      base: BASE_PATH,
       cache: true,
       data,
       hash: true,
@@ -49,11 +55,13 @@ const config = {
         from: 'src/assets/images',
         to: 'assets/images'
       },
-      // {
-      //   from: 'src/assets/fonts',
-      //   to: 'assets/fonts'
-      // }
-    ])
+      {
+        from: 'src/favicon.ico',
+      },
+      {
+        from: 'src/CNAME',
+      }
+    ]),
   ],
   module: {
     rules: [
@@ -63,7 +71,8 @@ const config = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: IS_PROD ? babelProdPlugins : [],
           }
         }
       },

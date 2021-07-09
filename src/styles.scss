@@ -28,13 +28,16 @@ body {
   }
 
   &[data-route-exiting] {
-    text.label {
+    text {
       display: none;
     }
   }
+
+  &.in-frame {
+    overflow: hidden;
+  }
 }
 header {
-
   h1 {
     position: fixed;
     z-index: 2;
@@ -49,17 +52,36 @@ header {
         display: none;
       }
     }
+    img {
+      max-width: 10vw;
+      height: auto;
+    }
   }
 }
-footer#main-footer {
+img {
+ max-width: 100%;
+}
+#copyright {
   font-family: Arial, sans-serif;
   position: fixed;
   bottom: 0;
+  right: 0;
   font-size: 11px;
   text-align: center;
   color: #eee;
+  padding: 10px;
   p {
     margin: 2px 0;
+  }
+}
+#social-links {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 40px;
+  a {
+    display: block;
   }
 }
 #navigation-genres {
@@ -104,6 +126,8 @@ footer#main-footer {
     text-transform: uppercase;
     box-sizing: border-box;
     display: block;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .navigation-item {
@@ -120,11 +144,11 @@ footer#main-footer {
 }
 #main {
   position: relative;
-  top: 150px;
+  top: 10vh;
 }
 #page-venn {
   position: relative;
-  height: 70%;
+  height: 600px;
   display: none;
 }
 #venn {
@@ -135,18 +159,21 @@ footer#main-footer {
   left: 0;
   overflow: hidden;
 }
-#page-home {
-  color: #fff;
+
+.page {
   max-width: 700px;
+  margin: 0 auto 32px;
+  width: 70vw;
+}
+#page-home {
+  @extend .page;
+  color: #fff;
   text-align: center;
   line-height: 1.4;
   font-size: 1.2em;
   display: none;
-  margin: 0 auto 32px;
-  padding: 0 32px;
+  // padding: 0 32px;
   overflow: hidden;
-  // height: 0;
-  // transition: all 500ms;
 }
 
 #home-intro--long {
@@ -156,19 +183,13 @@ footer#main-footer {
 
 
 [data-route-path="/"] #page-home {
-  // height: 400px;
   margin: 32px auto;
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  [data-route-path="/"] #page-home {
-    // height: 400px;
-    // margin: 32px auto;
-  }
-
   body:not([data-route-route="genre"]) #page-venn {
-    height: 100%;
+    height: 800px;
   }
   #home-intro--long {
     display: block;
@@ -177,11 +198,18 @@ footer#main-footer {
     display: none;
   }
 }
-
-#page-artist {
-  display: none;
+@media (max-width: 600px) {
+  header h1 img {
+    // max-width: 120px;
+  }
+  #main {
+    top: 2.5vh;
+  }
 }
+
+#page-artist,
 #page-genre {
+  @extend .page;
   display: none;
 }
 .venntooltip {
@@ -217,41 +245,53 @@ text.label {
   fill: #fff !important;
   tspan {
     transition: all 800ms;
+    font-size: initial;
   }
 }
-div[data-venn-text] {
-  color: #eee;
-  text-align: center;
-  position: absolute;
-  overflow: hidden;
-  transition: all 100ms;
-  display: none;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  &.active {
-    opacity: 1;
-    transform: none;
-  }
 
-  h1 {
-    margin-top: 0;
-    text-transform: uppercase;
-    font-family: 'Interstate Regular';
-    font-size: 3em;
+.paging-item {
+  display: inline-block;
+  margin: 0 16px 0;
+  padding: 0;
+  position: relative;
+  text-transform: uppercase;
+  a {
+    display: block;
+    padding: 25px 45px ;
+  }
+  .paging-item--arrow {
+    background-repeat: no-repeat;
+    display: block;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-indent: -100em;
+    top: 0;
+    width: 50px;
+  }
+  &.paging-item--next {
+    text-align: left;
+    .paging-item--arrow {
+      float: left;
+    }
+  }
+  &.paging-item--previous {
+    text-align: right;
+    .paging-item--arrow {
+      float: right;
+    }
   }
 }
 
 .genre-details,
 .artist-details {
-  padding: 20px;
+  // padding: 20px;
   color: #fff;
   line-height: 1.65;
   main {
-    width: 550px;
-    max-width: 90%;
+    // width: 550px;
+    // max-width: 90%;
     margin: 0 auto;
     text-align: center;
     h1 {
@@ -267,6 +307,10 @@ div[data-venn-text] {
       border-top-width: 1px;
       border-top-style: solid;
     }
+    img {
+      width: 280px;
+      margin: 0 auto;
+    }
   }
   strong {
     font-family: Interstate Regular;
@@ -276,11 +320,6 @@ div[data-venn-text] {
   a {
     color: #fff;
   }
-  img {
-    width: 280px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
 }
 
 .artist-details--genres,
@@ -289,13 +328,13 @@ div[data-venn-text] {
   padding: 0;
   text-align: center;
 }
-.artist-details--paging-item,
-.artist-details--genres-item {
-  display: inline-block;
-  margin: 0 16px 0;
-  text-transform: uppercase;
-}
 
+.artist-details--genres-item {
+  @extend .paging-item;
+  a {
+    padding: 0.3em 0.6em;
+  }
+}
 .artist-details--genres {
   margin: 1em auto;
   font-family: Interstate Regular;
@@ -315,6 +354,12 @@ div[data-venn-text] {
 }
 .artist-details--paging {
   margin: 3em auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  + .artist-details--paging {
+    margin-top: -1.5em;
+  }
 }
 .artist-details--paging-item {
   a {
@@ -326,50 +371,24 @@ div[data-venn-text] {
   }
 }
 
-.paging-item {
-  position: relative;
-  a {
-    display: block;
-    padding: 25px 45px ;
-  }
-  .paging-item--arrow {
-    display: block;
-    text-indent: -100em;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 80px;
-
-    position: absolute;
-
-    top: 0;
-  }
-  &.paging-item--next {
-    .paging-item--arrow {
-      float: left;
-    }
-  }
-  &.paging-item--previous {
-    .paging-item--arrow {
-      float: right;
-    }
-  }
-}
-.paging-item--previous {}
-
 .genre-details {
   footer {
     text-align: center;
   }
 }
 .genre-artists {
+  font-size: 2vw;
   display: grid;
-  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
   grid-gap: 20px;
-  list-style:none;
-  margin: 60px auto;
-  width: 80%;
+  list-style: none;
+  margin: 0;
   padding: 0;
+}
+@media (max-width: 500px) {
+  .genre-artists {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  }
 }
 .genre-artists--title {
   font-size: 1.7em;
@@ -380,19 +399,27 @@ div[data-venn-text] {
     display: block;
     text-decoration: none;
   }
-  // * {
-  //   display: none;
-  // }
   h1 {
     margin: 0 !important;
     color: #fff !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2.5rem;
   }
-  // h1,
-  // p:nth-of-type(1) {
-  //   display: block;
-  //   margin: 0;
-  //   img {
-  //     display: block;
-  //   }
-  // }
+}
+.embed-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
